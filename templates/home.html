@@ -1,6 +1,8 @@
 {% extends 'navbar.html' %}
 {% block title %}AV LASERcrafts™ - Sign Board Manufacturer | Acrylic ...{% endblock title %}
+{% load static %}
 {% block body %}
+
 
 {% comment %} carousel {% endcomment %}
 <style>
@@ -471,79 +473,53 @@ p {
 }
 
 .list-group-item {
-        background-color: #ff6f61;
-        color: #fff;
-        font-weight: bold;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        border: none;
-        border-radius: 10px;
-    }
-    
-    .list-group-item:hover, .list-group-item.active {
-        background-color: #e63946;
-        transform: scale(1.05);
-    }
-
-    .content-grid {
-        display: none;
-    }
-
-    .content-grid.active {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .hover-zoom {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .hover-zoom:hover {
-        transform: scale(1.1);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    @media (max-width: 767px) {
-        .list-group-item {
-            text-align: center;
+            background-color: #ff6f61;
+            color: #fff;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+            border-radius: 10px;
         }
-    }
+        
+        .list-group-item:hover, .list-group-item.active {
+            background-color: #e63946;
+            transform: scale(1.05);
+        }
+    
+        .content-grid {
+            display: none;
+        }
+    
+        .content-grid.active {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    
+        .hover-zoom {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .hover-zoom:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    
+        @media (max-width: 767px) {
+            .list-group-item {
+                text-align: center;
+            }
+        }
+
+        .images img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
 </style>
 <!-- Carousel -->
-<!-- <div id="carouselExampleControls" class="carousel slide bg-dark" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="row align-items-center">
-        <div class="col-md-6 py-4 text-center text-md-left">
-          <h2 class="carousel-heading">Acrylic Sign Boards</h2>
-          <p class="carousel-text"> Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Business. </p>
-         
-    
-          <button class="btn  btn-custom">Get Started </button>
-          <button class="btn btn-custom">Get in touch</button>
-        </div>
-        <div class="col-md-6 py-4">
-          <img class="d-block img-fluid carousel-img" src="https://www.avlasercrafts.com/assets/images/slider/1.png" alt="First slide">
-        </div>
-      </div>
-    </div>
-   
-    <div class="carousel-item">
-      <div class="row align-items-center">
-        <div class="col-md-6 py-4 text-center text-md-left">
-          <h2 class="carousel-heading">To Create Identity</h2>
-          <p class="carousel-text"> Text text text here. Text here, here, here, here is the text. Text here, here, here, here is the text. </p>
-          <button class="btn  btn-custom">Get Started </button>
-          <button class="btn btn-custom">Get in touch</button>
-        </div>
-        <div class="col-md-6 py-4">
-          <img class="d-block img-fluid carousel-img" src="https://www.avlasercrafts.com/assets/images/slider/2.png" alt="Second slide">
-        </div>
-      </div>
-    </div>
-    
-  </div>
 
-</div> -->
 
 <div class="carousel">
   <!-- list item -->
@@ -705,26 +681,25 @@ p {
     </div>
 
     <div class="container-fluid py-5" style="background-color: #f5c0c0;" id="portfolio">
-        <div class="text-center">
-            <h1 class="display-4">Featured Works</h1>
-            <p class="lead">Creativity has no bar! We believe in designing and Manufacturing Best Signages and Acrylic Products for You or Your business or brand</p>
-        </div>
+    
     
         <div class="row mt-5">
             <!-- Navigation Panel -->
             <div class="col-md-3 mb-4">
                 <div class="list-group">
                     <button class="list-group-item list-group-item-action active" data-target="#all-work">ALL WORK</button>
-                    <button class="list-group-item list-group-item-action" data-target="#3d-glow-signage">3D GLOW SIGNAGE</button>
-                    <button class="list-group-item list-group-item-action" data-target="#3d-non-glow-signage">3D NON-GLOW SIGNAGE</button>
-                    <button class="list-group-item list-group-item-action" data-target="#2d-signages">2D SIGNAGES</button>
-                    <button class="list-group-item list-group-item-action" data-target="#acp-panelling">ACP PANELLING</button>
-                    <button class="list-group-item list-group-item-action" data-target="#acrylic-nameplates">ACRYLIC NAMEPLATES</button>
-                    <button class="list-group-item list-group-item-action" data-target="#acrylic-products">ACRYLIC PRODUCTS</button>
-                    <button class="list-group-item list-group-item-action" data-target="#digital-printing">DIGITAL PRINTING</button>
-                    <button class="list-group-item list-group-item-action" data-target="#banner-printing">BANNER PRINTING</button>
+                    
+                    <button class="list-group-item list-group-item-action mt-3" data-target="#three-d-glow-signage">3D GLOW SIGNAGE</button>
+                    <button class="list-group-item list-group-item-action mt-3" data-target="#non-glow-signage">3D NON-GLOW SIGNAGE</button>
+                    <button class="list-group-item list-group-item-action mt-3" data-target="#two-d-signage">2D SIGNAGES</button>
+                    <button class="list-group-item list-group-item-action mt-3" data-target="#acp-panelling">ACP PANELLING</button>
+                    <button class="list-group-item list-group-item-action mt-3" data-target="#acrylic-nameplates">ACRYLIC NAMEPLATES</button>
+                    <button class="list-group-item list-group-item-action mt-3" data-target="#acrylic-products">ACRYLIC PRODUCTS</button>
+                    <button class="list-group-item list-group-item-action mt-3" data-target="#digital-printing">DIGITAL PRINTING</button>
+                    {% comment %} <button class="list-group-item list-group-item-action mt-3" data-target="#banner-printing">BANNER PRINTING</button> {% endcomment %}
                 </div>
             </div>
+    
     
             <!-- Image Display Panel -->
             <div class="col-md-9">
@@ -732,107 +707,288 @@ p {
                     <!-- ALL WORK Grid -->
                     <div id="all-work" class="content-grid row">
                         <!-- Add your images here -->
-                        <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="images col-lg-4 col-md-6 mb-4">
                             <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow.png" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow1.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-lg-4 col-md-6 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow1.jpg" class="img-fluid rounded hover-zoom " alt="All Work">
                         </div>
                         <!-- Add more images following the same structure -->
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow2.jpg" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow2.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow4.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow3.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow5.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow.png" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow2.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
                         <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow4.jpg" class="img-fluid" alt="All Work">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow1.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
                         <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow3.jpg" class="img-fluid" alt="All Work">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow3.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign.jpeg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow4.png" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign1.jpeg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign3.jpeg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign2.jpeg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
                         <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow5.jpg" class="img-fluid" alt="All Work">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp1.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
                         <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow.png" class="img-fluid" alt="All Work">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp2.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
                         <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow2.jpg" class="img-fluid" alt="All Work">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp3.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
                         <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow1.jpg" class="img-fluid" alt="All Work">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate3.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow3.jpg" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate4.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign.jpeg" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate6.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow4.png" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate7.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign1.jpeg" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate5.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign3.jpeg" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate8.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign2.jpeg" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp1.jpg" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate9.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp2.jpg" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product2.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp.jpg" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product4.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp3.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate3.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate4.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate6.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate7.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate5.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate8.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate9.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product2.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product4.jpg" class="img-fluid" alt="All Work">
-                        </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product3.jpg" class="img-fluid" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product3.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
                         </div>
                     </div>
                     <!-- 3D NON-GLOW SIGNAGE Grid -->
-                    <div id="3d-non-glow-signage" class="content-grid row d-none">
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate8.jpg" class="img-fluid rounded hover-zoom" alt="3D Non-Glow Signage">
+                    <div id="three-d-glow-signage" class="content-grid row">
+                        <!-- Add your images here -->
+                        <div class="images col-lg-4 col-md-6 mb-4">
+                            <img src="{% static 'images/3dglow1.png' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
                         </div>
-                        <!-- Add more images as needed -->
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/3dglow2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/3dglow3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/3dglow4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/3dglow5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/3dglow6.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
                     </div>
-                    <!-- More grids for other categories -->
-                    <!-- Add similar grid structures for each category -->
+                    <div id="non-glow-signage" class="content-grid row">
+                        <!-- Add your images here -->
+                        <div class="images col-lg-4 col-md-6 mb-4">
+                            <img src="{% static 'images/nonglow1.png' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nonglow2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nonglow3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nonglow4.png' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nonglow5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                      
+                    </div>
+                    <div id="two-d-signage" class="content-grid row">
+                        <!-- Add your images here -->
+                        <div class="images col-lg-4 col-md-6 mb-4">
+                            <img src="{% static 'images/2dsign.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/2dsign1.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/2dsign2.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/2dsign3.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                      
+                    </div>
+
+
+                    <div id="acp-panelling" class="content-grid row">
+                        <!-- Add your images here -->
+                        <div class="images col-lg-4 col-md-6 mb-4">
+                            <img src="{% static 'images/acp.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/acp1.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/acp2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/acp3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                      
+                    </div>
+                   
+                    <div id="acrylic-nameplates" class="content-grid row">
+                        <!-- Add your images here -->
+                        <div class="images col-lg-4 col-md-6 mb-4">
+                            <img src="{% static 'images/nameplate.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nameplate1.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nameplate2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nameplate3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nameplate4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nameplate5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nameplate6.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nameplate7.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nameplate8.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/nameplate9.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                      
+                    </div>
+
+
+                    <div id="acrylic-products" class="content-grid row">
+                        <!-- Add your images here -->
+                        <div class="images col-lg-4 col-md-6 mb-4">
+                            <img src="{% static 'images/product.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
+                        </div>
+                      
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product6.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product7.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product8.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product9.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product10.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                      
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product11.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product12.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product13.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/product14.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                      
+                    </div>
+                   
+               
+
+                    <div id="digital-printing" class="content-grid row">
+                        <!-- Add your images here -->
+                        <div class="images col-lg-4 col-md-6 mb-4">
+                            <img src="{% static 'images/digital.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
+                        </div>
+                      
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/digital1.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/digital2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/digital3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4">
+                            <img src="{% static 'images/digital4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                    
+                    </div>
                 </div>
             </div>
         </div>
@@ -911,7 +1067,7 @@ p {
           </div>
       </div>
       <div class="col-lg-6 d-flex align-items-center justify-content-center faq-image-container">
-          <img src="https://www.avlasercrafts.com/assets/images/about.png" class="img-fluid rounded faq-image" alt="FAQ Image">
+          <img src="https://www.avlasercrafts.com/assets/images/about.png" class="img-fluid rounded hover-zoom rounded faq-image" alt="FAQ Image">
       </div>
   </div>
 </div>
