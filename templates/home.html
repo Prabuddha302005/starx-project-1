@@ -6,86 +6,12 @@
 <style>
   body{
     margin: 0;
-    /* background-color: #000; */
     color: #eee;
     font-family: Poppins;
     font-size: 12px;
 
 }
-/* .carousel-item {
-    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
-}
 
-.carousel-heading {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-    animation: fadeInUp 1s ease-in-out;
-}
-
-.carousel-text {
-    font-size: 1.2rem;
-    color: white;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    animation: fadeInUp 1.5s ease-in-out;
-}
-
-
-
-
-.carousel-img {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-    animation: zoomIn 1s ease-in-out;
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes zoomIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-}
-
-.carousel-control-prev-icon:hover,
-.carousel-control-next-icon:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-    
-
-    html {
-        scroll-behavior: smooth;
-    }
-    .container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-} */
 .carousel{
     height: 100vh;
     /* margin-top: -50px; */
@@ -403,7 +329,7 @@
   backdrop-filter: blur(12px);
   border-radius: 15px;
   overflow: hidden;
-  outline: 2px solid rgba(255, 255, 255, 0.2);
+  outline: 2px solid rgba(255, 0, 0, 0.2);
 }
 
 .blob {
@@ -415,7 +341,7 @@
   height: 200px;
   border-radius: 50%;
   /* background-color: rgba(28, 25, 25, 0.6); */
-  background-color: rgb(209,7,5);
+  background-color: #f1683a;
   filter: blur(20px);
   animation: blob-bounce 5s infinite ease;
 }
@@ -494,7 +420,7 @@ p {
 
 /* FAQ */
 .accordion-button {
-    background-color: #6f58e0;
+    background-color: #f1683a;
     color: white;
     border: none;
     border-radius: 5px;
@@ -504,7 +430,7 @@ p {
 }
 
 .accordion-button:hover {
-    background-color: #5a47ba;
+    background-color: #f1683a;
 }
 
 .accordion-button:focus {
@@ -533,7 +459,7 @@ p {
     height: 300px; /* Set a fixed height */
     object-fit: cover; /* Maintain aspect ratio while covering the area */
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0 8px 20px rgba(172, 61, 61, 0.15); */
 }
 
 .container {
@@ -544,7 +470,43 @@ p {
     display: block; /* Ensures the transition works correctly */
 }
 
+.list-group-item {
+        background-color: #ff6f61;
+        color: #fff;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        border: none;
+        border-radius: 10px;
+    }
+    
+    .list-group-item:hover, .list-group-item.active {
+        background-color: #e63946;
+        transform: scale(1.05);
+    }
 
+    .content-grid {
+        display: none;
+    }
+
+    .content-grid.active {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .hover-zoom {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hover-zoom:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 767px) {
+        .list-group-item {
+            text-align: center;
+        }
+    }
 </style>
 <!-- Carousel -->
 <!-- <div id="carouselExampleControls" class="carousel slide bg-dark" data-bs-ride="carousel">
@@ -592,12 +554,12 @@ p {
               <div class="author">LASERcrafts™</div>
               <div class="title">Acrylic Sign Boards</div>
               <div class="topic"> Sign Boards</div>
-              <div class="des">
-                Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Busine
+              <div class="des" style="font-size: larger; font-weight:900">
+                Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Business
               </div>
               <div class="buttons">
-                  <button>SEE MORE</button>
-                  <button>SUBSCRIBE</button>
+                  <button>GET STARTED</button>
+                  <button>GET IN TOUCH</button>
               </div>
           </div>
       </div>
@@ -607,12 +569,12 @@ p {
             <div class="author">LASERcrafts™</div>
             <div class="title">Acrylic Sign Boards</div>
             <div class="topic"> Sign Boards</div>
-            <div class="des">
-              Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Busine
+            <div class="des" style="font-size: larger;  font-weight:900">
+                Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Business
             </div>
               <div class="buttons">
-                  <button>SEE MORE</button>
-                  <button>SUBSCRIBE</button>
+                <button>GET STARTED</button>
+                <button>GET IN TOUCH</button>
               </div>
           </div>
       </div>
@@ -622,12 +584,12 @@ p {
             <div class="author">LASERcrafts™</div>
             <div class="title">Acrylic Sign Boards</div>
             <div class="topic">Sign Boards</div>
-            <div class="des">
-              Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Busine
+            <div class="des" style="font-size: larger; font-weight:900">
+                Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Business
             </div>
               <div class="buttons">
-                  <button>SEE MORE</button>
-                  <button>SUBSCRIBE</button>
+                <button>GET STARTED</button>
+                <button>GET IN TOUCH</button>
               </div>
           </div>
       </div>
@@ -680,11 +642,18 @@ p {
 </div>
 
 
-<div class="container mt-5" id="services">
-  <h1>Our Services</h1>
+<!-- Our Services -->
+<div class="container w-100" style="background-color: #f9f9f9;">
+
+
+<div class="container mt-5 " id="services" style="color: #000;">
+  <h1 class="text-center">Our Services</h1>
+</div>
+<div class="container w-50" id="services" style="color: #000;">
+  <p class="text-center">Excellent customer service is the number one job in any company! It is the personality of the company and the reason customers come back. Without customers there is no company!</p>
 </div>
 
-<div class="container">
+<div class="container" >
   <div class="row">
     <div class="col-md-4 mb-4">
       <div class="card">
@@ -692,7 +661,9 @@ p {
         <div class="blob"></div>
         <div class="content">
           <h2>Acrylic Signages</h2>
-          <p>Signage boards made up of acrylic are trending nowadays to highlight businesses in a crowd. As a result, it helps to make the identity of your business. Compared to previous decades, today's glow signs consume less power, making them cost-effective compared to the output of glow signs. Premium quality sign boards give a premium look to your business.</p>
+          <p>
+            Aluminium composite panels (ACP), made of aluminium composite material (ACM), are flat panels consisting of two thin coil-coated aluminium sheets bonded to a non-aluminium core. ACPs are frequently used for external cladding or facades of buildings, insulation, and signage.
+          </p>
         </div>
       </div>
     </div>
@@ -722,6 +693,151 @@ p {
     </div>
   </div>
 </div>
+</div>
+
+<!-- Featured work -->
+<div class="container w-100" style="background-color: #f5c0c0;" id="portfolio">
+    <div class="container mt-5" id="services" style="color: #000;">
+        <h1 class="text-center">Featured Works</h1>
+    </div>
+    <div class="container w-50" id="services" style="color: #000;">
+        <p class="text-center">Creativity has no bar! We believe in designing and Manufacturing Best Signages and Acrylic Products for You or Your business or brand</p>
+    </div>
+
+    <div class="container-fluid py-5" style="background-color: #f5c0c0;" id="portfolio">
+        <div class="text-center">
+            <h1 class="display-4">Featured Works</h1>
+            <p class="lead">Creativity has no bar! We believe in designing and Manufacturing Best Signages and Acrylic Products for You or Your business or brand</p>
+        </div>
+    
+        <div class="row mt-5">
+            <!-- Navigation Panel -->
+            <div class="col-md-3 mb-4">
+                <div class="list-group">
+                    <button class="list-group-item list-group-item-action active" data-target="#all-work">ALL WORK</button>
+                    <button class="list-group-item list-group-item-action" data-target="#3d-glow-signage">3D GLOW SIGNAGE</button>
+                    <button class="list-group-item list-group-item-action" data-target="#3d-non-glow-signage">3D NON-GLOW SIGNAGE</button>
+                    <button class="list-group-item list-group-item-action" data-target="#2d-signages">2D SIGNAGES</button>
+                    <button class="list-group-item list-group-item-action" data-target="#acp-panelling">ACP PANELLING</button>
+                    <button class="list-group-item list-group-item-action" data-target="#acrylic-nameplates">ACRYLIC NAMEPLATES</button>
+                    <button class="list-group-item list-group-item-action" data-target="#acrylic-products">ACRYLIC PRODUCTS</button>
+                    <button class="list-group-item list-group-item-action" data-target="#digital-printing">DIGITAL PRINTING</button>
+                    <button class="list-group-item list-group-item-action" data-target="#banner-printing">BANNER PRINTING</button>
+                </div>
+            </div>
+    
+            <!-- Image Display Panel -->
+            <div class="col-md-9">
+                <div class="row">
+                    <!-- ALL WORK Grid -->
+                    <div id="all-work" class="content-grid row">
+                        <!-- Add your images here -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow.png" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow1.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        </div>
+                        <!-- Add more images following the same structure -->
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow2.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow4.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow3.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow5.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow.png" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow2.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow1.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow3.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign.jpeg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow4.png" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign1.jpeg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign3.jpeg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign2.jpeg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp1.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp2.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp3.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate3.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate4.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate6.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate7.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate5.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate8.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate9.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product2.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product4.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                        <div class="col-6 col-md-4 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product3.jpg" class="img-fluid" alt="All Work">
+                        </div>
+                    </div>
+                    <!-- 3D NON-GLOW SIGNAGE Grid -->
+                    <div id="3d-non-glow-signage" class="content-grid row d-none">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate8.jpg" class="img-fluid rounded hover-zoom" alt="3D Non-Glow Signage">
+                        </div>
+                        <!-- Add more images as needed -->
+                    </div>
+                    <!-- More grids for other categories -->
+                    <!-- Add similar grid structures for each category -->
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <!-- FAQ -->
 <div class="container mt-5 " id="faq">
@@ -749,6 +865,45 @@ p {
                   <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
                       <div class="accordion-body">
                           Our manufacturing time, under normal circumstances, is 2-3 working days, however, during busy periods, this may extend to 7 – 8 working days. For particularly large projects or urgent projects, a mutually agreed time frame can be organized. All timeline estimations are from receipt of an agreed deposit or purchase order.
+                      </div>
+                  </div>
+              </div>
+              <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        What gaurantee does my signboard have?
+                       
+                      </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        Our signages are completed to the highest possible standard and are currently supplied with a 1-year guarantee from the date of the completion of the installation as we suggest the specifications to reach the guarantee.
+                      </div>
+                  </div>
+              </div>
+              <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFour">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        What materials can be used in construction of my signage board?
+
+                      </button>
+                  </h2>
+                  <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        We have the ability to use many different types of materials, from extruded plastics, cast acrylics, wood and composite materials. Materials are available in various different colors and finishes
+                      </div>
+                  </div>
+              </div>
+              <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFive">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        What kind of maintenance will my sign board require?
+                        
+                      </button>
+                  </h2>
+                  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                      <div class="accordion-body">
+                        Depending on the materials, signs may need to be cleaned over time, especially outdoor signage. Our consultants can make specific recommendations for maintenance based on your sign. It’s important to avoid damage from harsh cleaners. Use only a soap and water mixture and avoid any cleaning product that contains ammonia.
                       </div>
                   </div>
               </div>
@@ -809,6 +964,30 @@ function showSlider(type){
         next.click();
     }, timeAutoNext)
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.list-group-item');
+        const contents = document.querySelectorAll('.content-grid');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove active class from all buttons
+                buttons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Hide all content grids
+                contents.forEach(content => content.classList.remove('active'));
+                // Show the target content grid
+                const target = this.getAttribute('data-target');
+                document.querySelector(target).classList.add('active');
+            });
+        });
+
+        // Initially display the first content grid
+        document.querySelector('.content-grid').classList.add('active');
+    });
+
 </script>
 
   
