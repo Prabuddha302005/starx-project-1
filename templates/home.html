@@ -363,6 +363,13 @@ h3 {
 p {
   font-size: 16px;
 }
+#map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 15px; /* Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+        }
 
 @keyframes blob-bounce {
   0% {
@@ -473,16 +480,18 @@ p {
 }
 
 .list-group-item {
-            background-color: #ff6f61;
+            background-color: #FF6600;
             color: #fff;
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.3s ease;
             border: none;
-            border-radius: 10px;
+            /* border-radius: 10px; */
+            height: 50px;
+            border-radius: 20px;
         }
         
         .list-group-item:hover, .list-group-item.active {
-            background-color: #e63946;
+            background-color: royalblue;
             transform: scale(1.05);
         }
     
@@ -513,10 +522,264 @@ p {
         .images img {
             aspect-ratio: 1/1;
             object-fit: cover;
-            max-width: 100%;
+            max-width: 80%;
             height: auto;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
+        .fade-in-image { 
+    animation: fadeIn 3s ease-in-out, scaleUp 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleUp {
+    0% { 
+        transform: scale(0.8); 
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% { 
+        transform: scale(1); 
+    }
+}
+        /* Custom styles */
+         /* Custom styles */
+         .contact-section {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 40px;
+            font-weight: 700;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        .contact-subtitle {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 40px;
+        }
+
+        .map-container {
+            height: 400px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .map-container:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            font-size: 16px;
+            color: #495057;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .contact-info strong {
+            font-size: 18px;
+            color: #343a40;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+
+        .container {
+    max-width: 100%;
+    padding: 15px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title-message {
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    position: relative;
+}
+
+.title-message::before,
+.title-message::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: royalblue;
+}
+
+.title-message::before {
+    width: 18px;
+    height: 18px;
+}
+
+.title-message::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+}
+
+.message,
+.signin {
+    color: rgba(88, 87, 87, 0.822);
+    font-size: 14px;
+}
+
+.signin {
+    text-align: center;
+}
+
+.signin a {
+    color: royalblue;
+}
+
+.signin a:hover {
+    text-decoration: underline royalblue;
+}
+
+.form label {
+    position: relative;
+}
+
+.form label .input {
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+}
+
+.form label .input + span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+    top: 15px;
+    font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+    top: 30px;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+.form label .input:valid + span {
+    color: green;
+}
+
+.submit {
+    border: none;
+    outline: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+    background-color: rgb(56, 90, 194);
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+hr.custom-hr {
+    border: none; /* Remove the default border */
+    height: 2px; /* Set the thickness of the line */
+    background-color: royalblue; /* Set the color of the line */
+    border-radius: 5px; /* Add rounded corners to the line */
+    margin: 20px 0; /* Add spacing above and below the line */
+    width: 100%; /* Set the line to take up full width */
+}
+
+/* Loader */
+.loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      position: fixed; /* Ensure it stays in place */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999; /* Ensure it appears above other content */
+    }
+
+    .loader::after {
+      content: "";
+      width: 75px;
+      height: 75px;
+      border: 15px solid #dddddd;
+      border-top-color: #FF6600;
+      border-radius: 50%;
+      animation: loading 0.75s ease-out infinite;
+    }
+
+    @keyframes loading {
+      from {
+        transform: rotate(0turn);
+      }
+
+      to {
+        transform: rotate(1turn);
+      }
+    }
+
 </style>
 <!-- Carousel -->
 
@@ -672,7 +935,7 @@ p {
 </div>
 
 <!-- Featured work -->
-<div class="container w-100" style="background-color: #f5c0c0;" id="portfolio">
+<div class="container w-100" style="background-color: #e0cbcb00;" id="portfolio">
     <div class="container mt-5" id="services" style="color: #000;">
         <h1 class="text-center">Featured Works</h1>
     </div>
@@ -680,7 +943,7 @@ p {
         <p class="text-center">Creativity has no bar! We believe in designing and Manufacturing Best Signages and Acrylic Products for You or Your business or brand</p>
     </div>
 
-    <div class="container-fluid py-5" style="background-color: #f5c0c0;" id="portfolio">
+    <div class="container-fluid py-5" id="portfolio">
     
     
         <div class="row mt-5">
@@ -705,156 +968,227 @@ p {
             <div class="col-md-9">
                 <div class="row">
                     <!-- ALL WORK Grid -->
-                    <div id="all-work" class="content-grid row">
+                    <div id="all-work" class="content-grid row  fade-in-image">
                         <!-- Add your images here -->
-                        <div class="images col-lg-4 col-md-6 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow.png" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
+                            <img src="{% static 'images/3dglow1.png' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
                         </div>
-                        <div class="images col-lg-4 col-md-6 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow1.jpg" class="img-fluid rounded hover-zoom " alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/3dglow2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <!-- Add more images following the same structure -->
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow2.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/3dglow3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow4.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/3dglow4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow3.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/3dglow5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/3dglow5.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/3dglow6.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow.png" class="img-fluid rounded hover-zoom" alt="All Work">
+
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
+                            <img src="{% static 'images/nonglow1.png' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow2.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nonglow2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow1.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nonglow3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow3.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nonglow4.png' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign.jpeg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nonglow5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nonglow4.png" class="img-fluid rounded hover-zoom" alt="All Work">
+
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
+                            <img src="{% static 'images/2dsign.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign1.jpeg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/2dsign1.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign3.jpeg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/2dsign2.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/2dsign2.jpeg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/2dsign3.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp1.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                      
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
+                            <img src="{% static 'images/acp.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp2.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/acp1.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/acp2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/acp3.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/acp3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate3.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+
+
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
+                            <img src="{% static 'images/nameplate.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate4.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nameplate1.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate6.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nameplate2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate7.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nameplate3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate5.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nameplate4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate8.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nameplate5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nameplate6.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/nameplate9.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nameplate7.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product2.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nameplate8.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product4.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/nameplate9.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
-                            <img src="https://www.avlasercrafts.com/assets/images/portfolio/product3.jpg" class="img-fluid rounded hover-zoom" alt="All Work">
+                      
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
+                            <img src="{% static 'images/product.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
+                        </div>
+                      
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product6.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product7.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product8.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product9.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product10.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                      
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product11.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product12.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product13.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/product14.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+
+
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
+                            <img src="{% static 'images/digital.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                     
+                        </div>
+                      
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/digital1.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/digital2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/digital3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
+                        </div>
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
+                            <img src="{% static 'images/digital4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
                     </div>
                     <!-- 3D NON-GLOW SIGNAGE Grid -->
                     <div id="three-d-glow-signage" class="content-grid row">
                         <!-- Add your images here -->
-                        <div class="images col-lg-4 col-md-6 mb-4">
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
                             <img src="{% static 'images/3dglow1.png' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                      
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/3dglow2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/3dglow3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/3dglow4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/3dglow5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/3dglow6.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
                     </div>
                     <div id="non-glow-signage" class="content-grid row">
                         <!-- Add your images here -->
-                        <div class="images col-lg-4 col-md-6 mb-4">
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
                             <img src="{% static 'images/nonglow1.png' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                      
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nonglow2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nonglow3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nonglow4.png' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nonglow5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
                       
                     </div>
                     <div id="two-d-signage" class="content-grid row">
                         <!-- Add your images here -->
-                        <div class="images col-lg-4 col-md-6 mb-4">
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
                             <img src="{% static 'images/2dsign.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                      
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/2dsign1.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/2dsign2.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/2dsign3.jpeg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
                       
@@ -863,17 +1197,17 @@ p {
 
                     <div id="acp-panelling" class="content-grid row">
                         <!-- Add your images here -->
-                        <div class="images col-lg-4 col-md-6 mb-4">
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
                             <img src="{% static 'images/acp.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                      
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/acp1.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/acp2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/acp3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
                       
@@ -881,35 +1215,35 @@ p {
                    
                     <div id="acrylic-nameplates" class="content-grid row">
                         <!-- Add your images here -->
-                        <div class="images col-lg-4 col-md-6 mb-4">
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
                             <img src="{% static 'images/nameplate.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                      
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nameplate1.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nameplate2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nameplate3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nameplate4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nameplate5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nameplate6.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nameplate7.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nameplate8.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/nameplate9.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
                       
@@ -918,49 +1252,49 @@ p {
 
                     <div id="acrylic-products" class="content-grid row">
                         <!-- Add your images here -->
-                        <div class="images col-lg-4 col-md-6 mb-4">
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
                             <img src="{% static 'images/product.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                      
                         </div>
                       
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product5.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product6.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product7.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product8.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product9.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product10.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
                       
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product11.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product12.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product13.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/product14.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
                       
@@ -970,21 +1304,21 @@ p {
 
                     <div id="digital-printing" class="content-grid row">
                         <!-- Add your images here -->
-                        <div class="images col-lg-4 col-md-6 mb-4">
+                        <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
                             <img src="{% static 'images/digital.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                      
                         </div>
                       
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/digital1.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/digital2.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/digital3.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
-                        <div class="images col-6 col-md-4 mb-4">
+                        <div class="images col-6 col-md-4 mb-4 fade-in-image">
                             <img src="{% static 'images/digital4.jpg' %}" class="img-fluid rounded hover-zoom" alt="3D glow">
                         </div>
                     
@@ -994,15 +1328,16 @@ p {
         </div>
     </div>
 
-
+    <hr>
 <!-- FAQ -->
-<div class="container mt-5 " id="faq">
+<div class="container mt-5" id="faq">
   <div class="row w-100">
       <div class="col-lg-6">
           <div class="accordion" id="faqAccordion">
               <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-controls="collapseOne">
+                  <h2 class="accordion-header mt-3" id="headingOne">
+                    Frequently Asked Questions
+                      <button class="accordion-button mt-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-controls="collapseOne">
                           What is the life span of my signage?
                       </button>
                   </h2>
@@ -1067,12 +1402,132 @@ p {
           </div>
       </div>
       <div class="col-lg-6 d-flex align-items-center justify-content-center faq-image-container">
-          <img src="https://www.avlasercrafts.com/assets/images/about.png" class="img-fluid rounded hover-zoom rounded faq-image" alt="FAQ Image">
+          <img src="https://www.avlasercrafts.com/assets/images/about.png" class="img-fluid rounded rounded faq-image" alt="FAQ Image">
       </div>
   </div>
 </div>
+
+<div class="contact-section container" id="contact">
+    <h1 class="contact-title mt-5">Contact</h1>
+    <h4 class="contact-subtitle">Our Manufacturing plant Located in Badlapur, Thane. Feel free to call us, or use the contact form below to reach out to us.</h4>
+    
+    <div class="map-container">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d120656.87925798235!2d73.04024516931437!3d19.08450216482951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1savlasercrafts!5e0!3m2!1sen!2sin!4v1723135660457!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    
+    <div class="contact-info text-left">
+        <strong>Head Office/ Manufacturing Unit</strong>
+        Shop No. 1 to 3, Khushbu Sagar Apt., Behind Shubham Hotel, Near VJ Honda Showroom, Badlapur, Thane, Maharashtra 421503.<br>
+        <br>Email: info@avlasercrafts.com<br>
+        Email: avlasercrafts@gmail.com<br>
+        Phone: +91 9067788666<br>
+        Phone: +91 9833788666
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="contact-info text-left">
+        <strong>Sales Office - Kalyan</strong>
+        107, Kaka dhaba, Barkubai Plaza, Dinkar Bhane Nagar, Kalyan East, Kalyan, Maharashtra 421301<br>
+        <br>Email: avlasercrafts.kalyan@gmail.com<br>
+        Phone: +91 7039682878
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="contact-info text-left">
+        <strong>Sales Office - Panvel</strong>
+        Shop No-12, Neel Ashima, Sector 2A, Dombala college Rd, near Axis Bank, Karanjade, Panvel, Navi Mumbai, Maharashtra 410206<br>
+        <br>Email: avlasercrafts.panvel@gmail.com<br>
+        Phone: +91 9152288666
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="contact-info text-left">
+        <strong>Sales Office - Seawoods</strong>
+        B-401, Shivashram Optimistics, Shankar Mandir Road, Sector 36, Karave Nagar, Seawoods, Navi Mumbai, Maharashtra-4007066<br>
+        <br>Email: avlasercrafts@gmail.com<br>
+        Phone: +91 9347818546
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="contact-info text-left">
+        <strong>Sales Office - Goregaon</strong>
+        13-12/A, Plot No-5, Nagri Nivara Parishad, Near Infinity IT Park, Goregaon, Mumbai, Maharashtra-400065<br>
+        <br>Email: avlasercrafts@gmail.com<br>
+        Phone: +91 9664201710
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="contact-info text-left">
+        <strong>Sales Office - Sakinaka</strong>
+        Hill No. 3, opp. Halimiya Bakery, Kamani, Ashok Nagar, Saki Naka, Mumbai, Maharashtra 400070<br>
+        <br>Email: avlasercrafts@gmail.com<br>
+        Phone: +91 9833788666
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="contact-info text-left">
+        <strong>Sales Office - Mankhurd</strong>
+        Bhairavnath Chawl No. 38, Near Shivaji Maidan Maharashtra Nagar, Y.C. Marg, Mankhurd, T.F Donar S.O, Mankhurd, Mumbai, Maharashtra 400088<br>
+        <br>Email: avlasercrafts@gmail.com<br>
+        Phone: +91 9222118820
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="contact-info text-left">
+        <strong>Sales Office - Ghansoli</strong>
+        PK, Shop No. 05, Patli Putra Building, Sector -9 Narayan Manoj Madvi Marg, Namdev Patil Rd, Ghansoli Gaon, Ghansoli, Navi Mumbai, Maharashtra 400701<br>
+        <br>Email: avlasercrafts@gmail.com<br>
+        Phone: +91 8668609011
+    </div>
+</div>
+
+<hr>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <form class="form">
+                <p class="title-message">Leave A Message.</p>
+                <div class="row flex">
+                    <div class="col-12 col-sm-6">
+                      
+                    </div>
+                </div>
+                <label>
+                    <input required placeholder="" type="name" class="input">
+                    <span>Name</span>
+                </label>
+                <label>
+                    <input required placeholder="" type="email" class="input">
+                    <span>Email</span>
+                </label>
+                <label>
+                    <textarea required placeholder="" class="input" rows="4"></textarea>
+                    <span>Message</span>
+                </label>
+            
+                <button class="submit">Send a message</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+/* From Uiverse.io by Subaashbala */ 
+/* From Uiverse.io by NourSafta */ 
+<div class="loader"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 <script>
-  let nextDom = document.getElementById('next');
+let nextDom = document.getElementById('next');
 let prevDom = document.getElementById('prev');
 
 let carouselDom = document.querySelector('.carousel');
@@ -1144,6 +1599,25 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.content-grid').classList.add('active');
     });
 
+
+    function initMap() {
+            // The location (example: New York)
+            const location = { lat: 40.7128, lng: -74.0060 };
+            // The map, centered at the location
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: location,
+            });
+            // The marker, positioned at the location
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+
+        window.addEventListener('load', function () {
+      document.querySelector('.loader').style.display = 'none';
+    });
 </script>
 
   
