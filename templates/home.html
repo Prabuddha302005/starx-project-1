@@ -7,7 +7,7 @@
 {% comment %} carousel {% endcomment %}
 <style>
   body{
-    margin: 0;
+    /* margin: 0; */
     color: #eee;
     font-family: Poppins;
     font-size: 12px;
@@ -436,6 +436,7 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     transition: background-color 0.3s ease;
+   
 }
 
 .accordion-button:hover {
@@ -452,6 +453,10 @@ p {
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    
 }
 
 .accordion-item {
@@ -471,9 +476,9 @@ p {
     /* box-shadow: 0 8px 20px rgba(172, 61, 61, 0.15); */
 }
 
-.container {
+/* .container {
     padding: 20px;
-}
+} */
 
 .collapse.show {
     display: block; /* Ensures the transition works correctly */
@@ -586,9 +591,9 @@ p {
             transition: transform 0.3s ease-in-out;
         }
 
-        .map-container:hover {
+        /* .map-container:hover {
             transform: scale(1.05);
-        }
+        } */
 
         .contact-info {
             font-size: 16px;
@@ -605,10 +610,10 @@ p {
         }
 
 
-        .container {
+        /* .container {
     max-width: 100%;
     padding: 15px;
-}
+} */
 
 .form {
     display: flex;
@@ -620,7 +625,7 @@ p {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.title-message {
+.title-mymessage {
     font-size: 28px;
     color: royalblue;
     font-weight: 600;
@@ -631,8 +636,8 @@ p {
     position: relative;
 }
 
-.title-message::before,
-.title-message::after {
+.title-mymessage::before,
+.title-mymessage::after {
     position: absolute;
     content: "";
     height: 16px;
@@ -642,18 +647,18 @@ p {
     background-color: royalblue;
 }
 
-.title-message::before {
+.title-mymessage::before {
     width: 18px;
     height: 18px;
 }
 
-.title-message::after {
+.title-mymessage::after {
     width: 18px;
     height: 18px;
     animation: pulse 1s linear infinite;
 }
 
-.message,
+.mymessage,
 .signin {
     color: rgba(88, 87, 87, 0.822);
     font-size: 14px;
@@ -780,6 +785,93 @@ hr.custom-hr {
       }
     }
 
+
+    .footer {
+        border-top: 1px solid #444;
+
+        margin-top: 10px;
+            background-color: #fff;
+            color: #FF6600;
+            padding: 40px 0;
+            position: relative;
+            z-index: 10;
+            font-size: larger;
+        }
+
+        .footer .footer-logo img {
+            max-height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .footer .social-icons a {
+            color: #ff5722;
+            margin: 0 10px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: #000;
+        }
+
+        .footer h5 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer .footer-links a {
+            color: #ff5722;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer .footer-links a:hover {
+            color: #000;
+        }
+
+        .footer .footer-contact p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #ff5722;
+        }
+
+        .footer .footer-contact a {
+            color: #ff5722;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer .footer-contact a:hover {
+            color: #000;
+        }
+
+        .footer .copyright {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #ff5722;
+            border-top: 1px solid #444;
+            margin-top: 40px;
+        }
+        .footer .developer-info {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .footer .developer-info a {
+            color: #ff5722;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer .developer-info a:hover {
+            color: #000000;
+        }
 </style>
 <!-- Carousel -->
 
@@ -797,8 +889,8 @@ hr.custom-hr {
                 Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Business
               </div>
               <div class="buttons">
-                  <button>GET STARTED</button>
-                  <button>GET IN TOUCH</button>
+                <button>GET STARTED</button>
+                <a href="#contact"><button>GET IN TOUCH</button></a>
               </div>
           </div>
       </div>
@@ -812,8 +904,8 @@ hr.custom-hr {
                 Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Business
             </div>
               <div class="buttons">
-                <button>GET STARTED</button>
-                <button>GET IN TOUCH</button>
+                  <button>GET STARTED</button>
+                  <a href="#contact"><button>GET IN TOUCH</button></a>
               </div>
           </div>
       </div>
@@ -828,7 +920,7 @@ hr.custom-hr {
             </div>
               <div class="buttons">
                 <button>GET STARTED</button>
-                <button>GET IN TOUCH</button>
+                <a href="#contact"><button>GET IN TOUCH</button></a>
               </div>
           </div>
       </div>
@@ -882,17 +974,17 @@ hr.custom-hr {
 
 
 <!-- Our Services -->
-<div class="container w-100" style="background-color: #f9f9f9;">
+<div class="container w-100 " id="services" style="background-color: #f9f9f9;">
 
 
-<div class="container mt-5 " id="services" style="color: #000;">
+<div class="container mt-5 " style="color: #000;">
   <h1 class="text-center">Our Services</h1>
 </div>
 <div class="container w-50" id="services" style="color: #000;">
   <p class="text-center">Excellent customer service is the number one job in any company! It is the personality of the company and the reason customers come back. Without customers there is no company!</p>
 </div>
 
-<div class="container" >
+<div class="container d-flex justify-content-center align-items-center">
   <div class="row">
     <div class="col-md-4 mb-4">
       <div class="card">
@@ -1330,12 +1422,14 @@ hr.custom-hr {
 
     <hr>
 <!-- FAQ -->
-<div class="container mt-5" id="faq">
+ <div >
+<div class="container mt-5" style="height: 100vh;">
+
   <div class="row w-100">
-      <div class="col-lg-6">
+      <div class="col-lg-6" id="faq">
           <div class="accordion" id="faqAccordion">
-              <div class="accordion-item">
-                  <h2 class="accordion-header mt-3" id="headingOne">
+              <div class="accordion-item" >
+                  <h2 class="accordion-header mt-3" id="headingOne" >
                     Frequently Asked Questions
                       <button class="accordion-button mt-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-controls="collapseOne">
                           What is the life span of my signage?
@@ -1405,6 +1499,7 @@ hr.custom-hr {
           <img src="https://www.avlasercrafts.com/assets/images/about.png" class="img-fluid rounded rounded faq-image" alt="FAQ Image">
       </div>
   </div>
+</div>
 </div>
 
 <div class="contact-section container" id="contact">
@@ -1493,23 +1588,24 @@ hr.custom-hr {
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <form class="form">
-                <p class="title-message">Leave A Message.</p>
+            <form class="form" method="POST">
+                {% csrf_token %}
+                <p class="title-mymessage">Leave A Message.</p>
                 <div class="row flex">
                     <div class="col-12 col-sm-6">
                       
                     </div>
                 </div>
                 <label>
-                    <input required placeholder="" type="name" class="input">
+                    <input required type="name" class="input" name="name">
                     <span>Name</span>
                 </label>
                 <label>
-                    <input required placeholder="" type="email" class="input">
+                    <input required type="email" class="input" name="email">
                     <span>Email</span>
                 </label>
                 <label>
-                    <textarea required placeholder="" class="input" rows="4"></textarea>
+                    <textarea  required class="input" rows="4" name="message"></textarea>
                     <span>Message</span>
                 </label>
             
@@ -1518,11 +1614,53 @@ hr.custom-hr {
         </div>
     </div>
 </div>
+<hr>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 footer-logo text-center text-md-start">
+                <img src="https://www.avlasercrafts.com/assets/images/logo.svg" alt="Logo">
+            </div>
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h5>Quick Links</h5>
+                <a href="#">Home</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="col-lg-3 col-md-6 footer-contact">
+                <h5>Contact Us</h5>
+                <p>Shop No. 1 to 3, Khushbu Sagar Apt.,Behind Shubham Hotel, Near VJ Honda Showroom, Badlapur, Thane, Maharashtra 421503.<br>
 
 
+                <p>Email: <a href="mailto:avlasercrafts@gmail.com">avlasercrafts@gmail.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+91 9067788666</a></p>
+            </div>
+            <div class="col-lg-3 col-md-6 social-icons text-center text-md-end">
+                <h5>Follow Us</h5>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="copyright">
+                    &copy; 2024 LaserCrafts. All Rights Reserved.
+                </div>
+                <div class="developer-info">
+                    Designed & Developed by <a href="https://www.starxinnovations.in/" target="_blank">STARX INNOVATIONS AND
+                        IT SOLUTIONS</a> | <a href="privacy-policy">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
-/* From Uiverse.io by Subaashbala */ 
-/* From Uiverse.io by NourSafta */ 
+
 <div class="loader"></div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
@@ -1600,24 +1738,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    function initMap() {
-            // The location (example: New York)
-            const location = { lat: 40.7128, lng: -74.0060 };
-            // The map, centered at the location
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 10,
-                center: location,
-            });
-            // The marker, positioned at the location
-            const marker = new google.maps.Marker({
-                position: location,
-                map: map,
-            });
-        }
-
         window.addEventListener('load', function () {
       document.querySelector('.loader').style.display = 'none';
+     
+      
     });
+
 </script>
 
   
