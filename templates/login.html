@@ -103,6 +103,23 @@ body {
   text-decoration: underline;
 }
 </style>
+            {% if messages %}
+            <div class="container mt-5">
+                {% for message in messages %}
+                {% if message.tags == "success" %}
+                <div class="alert alert-success alert-dismissible fade show w-50 container" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% else %}
+                <div class="alert alert-danger alert-dismissible fade show w-50 container" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
     <form class="form mx-auto mt-5" method="POST">
       {% csrf_token %}
        <p class="form-title">Admin Login</p>

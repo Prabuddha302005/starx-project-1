@@ -29,19 +29,21 @@ def adminLogin(request):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
-
+     
         user = authenticate(username=username, password=password)
         if user is None:
             print("No user found")
+            messages.error(request, "Invalid credentials")
         else:
             login(request, user)
+            messages.success(request, "Logged in")
             return redirect("/adminpanel")
     return render(request, "login.html")
 
 
 def adminPanel(request):
-        data = {}
-    # if(request.user.is_authenticated):
+    data = {}
+    if(request.user.is_authenticated):
         if request.method == "POST":
             image = request.FILES.get('image')  # Safely get the image from the request
             category = request.POST.get('category')  # Safely get the category
@@ -52,9 +54,9 @@ def adminPanel(request):
         data['images'] = get_images
         print(request.user)
 
-    # else:
-        # return redirect("/admin-login")
-        return render(request, "adminpanel.html", context=data)
+    else:
+        return redirect("/admin-login")
+    return render(request, "adminpanel.html", context=data)
 
 
 def deleteImage(request, id):
@@ -76,5 +78,6 @@ def deleteMessages(request, id):
 
 def adminLogout(request):
     logout(request)
+    messages.error(request, "Logged out")
     return redirect("/admin-login")
 
