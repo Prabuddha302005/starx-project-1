@@ -1,5 +1,5 @@
 {% extends 'navbar.html' %}
-{% block title %}AV LASERcrafts™ - Sign Board Manufacturer | Acrylic ...{% endblock title %}
+{% block title %}AV Ultron Arts - Sign Board Manufacturer | Acrylic ...{% endblock title %}
 {% load static %}
 {% block body %}
 
@@ -427,6 +427,8 @@ p {
  transform: translateX(0);
 }
 
+
+
 /* FAQ */
 .accordion-button {
     background-color: #f1683a;
@@ -527,7 +529,7 @@ p {
         .images img {
             aspect-ratio: 1/1;
             object-fit: cover;
-            max-width: 80%;
+            max-width:90%;
             height: auto;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
@@ -880,9 +882,9 @@ hr.custom-hr {
   <!-- list item -->
   <div class="list">
       <div class="item">
-          <img src="https://i.pinimg.com/564x/f4/77/1a/f4771a3939c7f0b6fd518779f42c6894.jpg">
+          <img src="https://i.pinimg.com/564x/02/09/1f/02091f787de90081b2ea97ac912a2c4c.jpg">
           <div class="content">
-              <div class="author">LASERcrafts™</div>
+              <div class="author">Ultron Arts</div>
               <div class="title">Acrylic Sign Boards</div>
               <div class="topic"> Sign Boards</div>
               <div class="des" style="font-size: larger; font-weight:900">
@@ -897,7 +899,7 @@ hr.custom-hr {
       <div class="item">
           <img src="https://i.pinimg.com/564x/59/7e/a0/597ea0e1c6c8856b820ae12b56da5928.jpg">
           <div class="content">
-            <div class="author">LASERcrafts™</div>
+            <div class="author">Ultron Arts</div>
             <div class="title">Acrylic Sign Boards</div>
             <div class="topic"> Sign Boards</div>
             <div class="des" style="font-size: larger;  font-weight:900">
@@ -910,9 +912,9 @@ hr.custom-hr {
           </div>
       </div>
       <div class="item">
-          <img src="https://i.pinimg.com/564x/02/09/1f/02091f787de90081b2ea97ac912a2c4c.jpg">
-          <div class="content">
-            <div class="author">LASERcrafts™</div>
+        <img src="https://i.pinimg.com/564x/f4/77/1a/f4771a3939c7f0b6fd518779f42c6894.jpg">
+        <div class="content">
+            <div class="author">Ultron Arts</div>
             <div class="title">Acrylic Sign Boards</div>
             <div class="topic">Sign Boards</div>
             <div class="des" style="font-size: larger; font-weight:900">
@@ -1056,111 +1058,98 @@ hr.custom-hr {
             </div>
     
     
-            <!-- Image Display Panel -->
-            <div class="col-md-9">
-                <div class="row">
-                    <!-- ALL WORK Grid -->
-                    <div id="all-work" class="content-grid row  fade-in-image">
-                        <!-- Add your images here -->
-                        {% for image in images %}
-                                <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
-                                    <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
-                                </div>
-                        {% endfor %}
-                    </div>
-
-                    <!-- 3D NON-GLOW SIGNAGE Grid -->
-                    <div id="three-d-glow-signage" class="content-grid row">
-                        <!-- Loop through all images and filter by "3D Glow" category -->
-                        {% for image in images %}
-                            {% if image.category == "3d glow signage" %}
-                                <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
-                                    <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    
-
-                    <!--  NON-GLOW SIGNAGE Grid -->
-                    <div id="non-glow-signage" class="content-grid row">
-                        <!-- Loop through all images and filter by "Non-Glow" category -->
-                        {% for image in images %}
-                        {% if image.category == "3d non glow signage" %}
-                                <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
-                                    <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-             
-                    <div id="two-d-signage" class="content-grid row">
-                        <!-- Add your images here -->
-                        {% for image in images %}
-                        {% if image.category == "2d signages" %}
-                                <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
-                                    <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-
-
-                    <div id="acp-panelling" class="content-grid row">
-                        <!-- Add your images here -->
-                        {% for image in images %}
-                        {% if image.category == "Acp panelling" %}
-                                <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
-                                    <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                   
-                    <div id="acrylic-nameplates" class="content-grid row">
-                        <!-- Add your images here -->
-                        {% for image in images %}
-                        {% if image.category == "Acrylic nameplates" %}
-                                <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
-                                    <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                      
-                    </div>
-
-
-                    <div id="acrylic-products" class="content-grid row">
-                        <!-- Add your images here -->
-                        {% for image in images %}
-                        {% if image.category == "Acrylic products" %}
-                                <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
-                                    <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                      
-                    </div>
-                   
-               
-
-                    <div id="digital-printing" class="content-grid row">
-                        <!-- Add your images here -->
-                        {% for image in images %}
-                        {% if image.category == "Digital printing" %}
-                                <div class="images col-lg-4 col-md-6 mb-4 fade-in-image">
-                                    <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    
-                    </div>
-                </div>
+         <!-- Image Display Panel -->
+<!-- Image Display Panel -->
+<div class="col-md-9">
+    <div class="row">
+        <!-- ALL WORK Grid -->
+        <div id="all-work" class="content-grid row fade-in-image">
+            {% for image in images %}
+            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
+                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
             </div>
+            {% endfor %}
+        </div>
+
+        <!-- 3D GLOW SIGNAGE Grid -->
+        <div id="three-d-glow-signage" class="content-grid row">
+            {% for image in images %}
+            {% if image.category == "3d glow signage" %}
+            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
+                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- NON-GLOW SIGNAGE Grid -->
+        <div id="non-glow-signage" class="content-grid row">
+            {% for image in images %}
+            {% if image.category == "3d non glow signage" %}
+            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
+                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- 2D SIGNAGE Grid -->
+        <div id="two-d-signage" class="content-grid row">
+            {% for image in images %}
+            {% if image.category == "2d signages" %}
+            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
+                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- ACP PANELLING Grid -->
+        <div id="acp-panelling" class="content-grid row">
+            {% for image in images %}
+            {% if image.category == "Acp panelling" %}
+            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
+                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- ACRYLIC NAMEPLATES Grid -->
+        <div id="acrylic-nameplates" class="content-grid row">
+            {% for image in images %}
+            {% if image.category == "Acrylic nameplates" %}
+            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
+                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- ACRYLIC PRODUCTS Grid -->
+        <div id="acrylic-products" class="content-grid row">
+            {% for image in images %}
+            {% if image.category == "Acrylic products" %}
+            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
+                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- DIGITAL PRINTING Grid -->
+        <div id="digital-printing" class="content-grid row">
+            {% for image in images %}
+            {% if image.category == "Digital printing" %}
+            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
+                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
+</div>
 
-    <hr>
 <!-- FAQ -->
  <div >
 <div class="container mt-5" style="height: 100vh;">
@@ -1244,16 +1233,17 @@ hr.custom-hr {
 
 <div class="contact-section container" id="contact">
     <h1 class="contact-title mt-5">Contact</h1>
-    <h4 class="contact-subtitle">Our Manufacturing plant Located in Badlapur, Thane. Feel free to call us, or use the contact form below to reach out to us.</h4>
+    <h4 class="contact-subtitle">Our Manufacturing plant Located in Ambernath West, Thane. Feel free to call us, or use the contact form below to reach out to us.</h4>
     
     <div class="map-container">
-
-        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d120656.87925798235!2d73.04024516931437!3d19.08450216482951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1savlasercrafts!5e0!3m2!1sen!2sin!4v1723135660457!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14344.174797028092!2d73.1878486!3d19.2146975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be793001d721757%3A0xc132e9267c8ed6b0!2sUltron%20Arts%20Sign%20Board%20And%20Graphics!5e1!3m2!1sen!2sin!4v1727429941447!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<!--         
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d120656.87925798235!2d73.04024516931437!3d19.08450216482951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1savlasercrafts!5e0!3m2!1sen!2sin!4v1723135660457!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
     </div>
     
     <div class="contact-info text-left">
         <strong>Head Office/ Manufacturing Unit</strong>
-        Opp.Ambernath Police station,Fatima School Road, Kailash Nagar, Ambernath West<br>
+        Ultron Arts, Opp.Ambernath Police station, Fatima School Road, Kailash Nagar, Ambernath West<br>
         Email: ultronarts77@gmail.com<br>
         Phone: +91 74004 25008
         <br>
@@ -1299,7 +1289,7 @@ hr.custom-hr {
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 footer-logo text-center text-md-start">
-                <img src="https://www.avlasercrafts.com/assets/images/logo.svg" alt="Logo">
+                <img src="{% static '/images/ULTRON_ARTS-01.png' %}" alt="Logo">
             </div>
             <div class="col-lg-3 col-md-6 footer-links">
                 <h5>Quick Links</h5>
@@ -1312,7 +1302,7 @@ hr.custom-hr {
             </div>
             <div class="col-lg-3 col-md-6 footer-contact">
                 <h5>Contact Us</h5>
-                <p>Opp.Ambernath Police station,Fatima School Road, Kailash Nagar, Ambernath West<br>
+                <p>Ultron Arts, Opp.Ambernath Police station,Fatima School Road, Kailash Nagar, Ambernath West<br>
 
 
                 <p>Email: <a href="mailto:ultronarts77@gmail.com">ultronarts77@gmail.com</a></p>
@@ -1320,16 +1310,16 @@ hr.custom-hr {
             </div>
             <div class="col-lg-3 col-md-6 social-icons text-center text-md-end">
                 <h5>Follow Us</h5>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61563009328372" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                <a href="https://www.instagram.com/ultron_arts_?utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="copyright">
-                    &copy; 2024 LaserCrafts. All Rights Reserved.
+                    &copy; 2024 Ultron Arts. All Rights Reserved.
                 </div>
                 <div class="developer-info">
                     Designed & Developed by <a href="https://www.starxinnovations.in/" target="_blank">STARX INNOVATIONS AND
