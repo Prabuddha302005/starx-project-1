@@ -6,785 +6,893 @@
 
 {% comment %} carousel {% endcomment %}
 <style>
-  body{
-    /* margin: 0; */
-    color: #eee;
-    font-family: Poppins;
-    font-size: 12px;
-
-}
-
-.carousel{
-    height: 100vh;
-    /* margin-top: -50px; */
-    width: 100vw;
-    overflow: hidden;
-    position: relative;
-}
-.carousel .list .item{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0 0 0 0;
-}
-.carousel .list .item img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.carousel .list .item .content{
-    position: absolute;
-    top: 20%;
-    width: 1140px;
-    max-width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-right: 30%;
-    box-sizing: border-box;
-    color: #fff;
-    text-shadow: 0 5px 10px #0004;
-}
-.carousel .list .item .author{
-    font-weight: bold;
-    letter-spacing: 10px;
-}
-.carousel .list .item .title,
-.carousel .list .item .topic{
-    font-size: 5em;
-    font-weight: bold;
-    line-height: 1.3em;
-}
-.carousel .list .item .topic{
-    color: #f1683a;
-}
-.carousel .list .item .buttons{
-    display: grid;
-    grid-template-columns: repeat(2, 130px);
-    grid-template-rows: 40px;
-    gap: 5px;
-    margin-top: 20px;
-}
-.carousel .list .item .buttons button{
-    border: none;
-    background-color: #eee;
-    letter-spacing: 3px;
-    font-family: Poppins;
-    font-weight: 500;
-}
-.carousel .list .item .buttons button:nth-child(2){
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #eee;
-}
-/* thumbail */
-.thumbnail{
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    width: max-content;
-    z-index: 100;
-    display: flex;
-    gap: 20px;
-}
-.thumbnail .item{
-    width: 150px;
-    height: 220px;
-    flex-shrink: 0;
-    position: relative;
-}
-.thumbnail .item img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-}
-.thumbnail .item .content{
-    color: #fff;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-}
-.thumbnail .item .content .title{
-    font-weight: 500;
-}
-.thumbnail .item .content .description{
-    font-weight: 300;
-}
-/* arrows */
-.arrows{
-    position: absolute;
-    top: 80%;
-    right: 52%;
-    z-index: 100;
-    width: 300px;
-    max-width: 30%;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-.arrows button{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #eee4;
-    border: none;
-    color: #fff;
-    font-family: monospace;
-    font-weight: bold;
-    transition: .5s;
-}
-.arrows button:hover{
-    background-color: #fff;
-    color: #000;
-}
-
-/* animation */
-.carousel .list .item:nth-child(1){
-    z-index: 1;
-}
-
-/* animation text in first item */
-
-.carousel .list .item:nth-child(1) .content .author,
-.carousel .list .item:nth-child(1) .content .title,
-.carousel .list .item:nth-child(1) .content .topic,
-.carousel .list .item:nth-child(1) .content .des,
-.carousel .list .item:nth-child(1) .content .buttons
-{
-    transform: translateY(50px);
-    filter: blur(20px);
-    opacity: 0;
-    animation: showContent .5s 1s linear 1 forwards;
-}
-@keyframes showContent{
-    to{
-        transform: translateY(0px);
-        filter: blur(0px);
-        opacity: 1;
+    html {
+        scroll-behavior: smooth;
     }
-}
-.carousel .list .item:nth-child(1) .content .title{
-    animation-delay: 1.2s!important;
-}
-.carousel .list .item:nth-child(1) .content .topic{
-    animation-delay: 1.4s!important;
-}
-.carousel .list .item:nth-child(1) .content .des{
-    animation-delay: 1.6s!important;
-}
-.carousel .list .item:nth-child(1) .content .buttons{
-    animation-delay: 1.8s!important;
-}
-/* create animation when next click */
-.carousel.next .list .item:nth-child(1) img{
-    width: 150px;
-    height: 220px;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    border-radius: 30px;
-    animation: showImage .5s linear 1 forwards;
-}
-@keyframes showImage{
-    to{
-        bottom: 0;
-        left: 0;
+
+    body {
+        /* margin: 0; */
+        color: #eee;
+        font-family: Poppins;
+        font-size: 12px;
+        scroll-behavior: smooth;
+
+    }
+
+    .carousel {
+        height: 100vh;
+        /* margin-top: -50px; */
+        width: 100vw;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .carousel .list .item {
         width: 100%;
         height: 100%;
-        border-radius: 0;
+        position: absolute;
+        inset: 0 0 0 0;
     }
-}
 
-.carousel.next .thumbnail .item:nth-last-child(1){
-    overflow: hidden;
-    animation: showThumbnail .5s linear 1 forwards;
-}
-.carousel.prev .list .item img{
-    z-index: 100;
-}
-@keyframes showThumbnail{
-    from{
-        width: 0;
-        opacity: 0;
+    .carousel .list .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
-}
-.carousel.next .thumbnail{
-    animation: effectNext .5s linear 1 forwards;
-}
 
-@keyframes effectNext{
-    from{
-        transform: translateX(150px);
+    .carousel .list .item .content {
+        position: absolute;
+        top: 20%;
+        width: 1140px;
+        max-width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-right: 30%;
+        box-sizing: border-box;
+        color: #fff;
+        text-shadow: 0 5px 10px #0004;
     }
-}
 
-/* running time */
+    .carousel .list .item .author {
+        font-weight: bold;
+        letter-spacing: 10px;
+    }
 
-.carousel .time{
-    position: absolute;
-    z-index: 1;
-    width: 0%;
-    height: 3px;
-    background-color: #f1683a;
-    left: 0;
-    top: 0;
-}
+    .carousel .list .item .title,
+    .carousel .list .item .topic {
+        font-size: 5em;
+        font-weight: bold;
+        line-height: 1.3em;
+    }
 
-.carousel.next .time,
-.carousel.prev .time{
-    animation: runningTime 3s linear 1 forwards;
-}
-@keyframes runningTime{
-    from{ width: 100%}
-    to{width: 0}
-}
+    .carousel .list .item .topic {
+        color: #f1683a;
+    }
 
+    .carousel .list .item .buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 130px);
+        grid-template-rows: 40px;
+        gap: 5px;
+        margin-top: 20px;
+    }
 
-/* prev click */
+    .carousel .list .item .buttons button {
+        border: none;
+        background-color: #eee;
+        letter-spacing: 3px;
+        font-family: Poppins;
+        font-weight: 500;
+    }
 
-.carousel.prev .list .item:nth-child(2){
-    z-index: 2;
-}
+    .carousel .list .item .buttons button:nth-child(2) {
+        background-color: transparent;
+        border: 1px solid #fff;
+        color: #eee;
+    }
 
-.carousel.prev .list .item:nth-child(2) img{
-    animation: outFrame 0.5s linear 1 forwards;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-@keyframes outFrame{
-    to{
-        width: 150px;
-        height: 220px;
+    /* thumbail */
+    .thumbnail {
+        position: absolute;
         bottom: 50px;
         left: 50%;
+        width: max-content;
+        z-index: 100;
+        display: flex;
+        gap: 20px;
+    }
+
+    .thumbnail .item {
+        width: 150px;
+        height: 220px;
+        flex-shrink: 0;
+        position: relative;
+    }
+
+    .thumbnail .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         border-radius: 20px;
     }
-}
 
-.carousel.prev .thumbnail .item:nth-child(1){
-    overflow: hidden;
-    opacity: 0;
-    animation: showThumbnail .5s linear 1 forwards;
-}
-.carousel.next .arrows button,
-.carousel.prev .arrows button{
-    pointer-events: none;
-}
-.carousel.prev .list .item:nth-child(2) .content .author,
-.carousel.prev .list .item:nth-child(2) .content .title,
-.carousel.prev .list .item:nth-child(2) .content .topic,
-.carousel.prev .list .item:nth-child(2) .content .des,
-.carousel.prev .list .item:nth-child(2) .content .buttons
-{
-    animation: contentOut 1.5s linear 1 forwards!important;
-}
-
-@keyframes contentOut{
-    to{
-        transform: translateY(-150px);
-        filter: blur(20px);
-        opacity: 0;
+    .thumbnail .item .content {
+        color: #fff;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
     }
-}
-@media screen and (max-width: 678px) {
-    .carousel .list .item .content{
-        padding-right: 0;
+
+    .thumbnail .item .content .title {
+        font-weight: 500;
     }
-    .carousel .list .item .content .title{
-        font-size: 30px;
+
+    .thumbnail .item .content .description {
+        font-weight: 300;
     }
-}
-.card {
-  position: relative;
-  width: 300px;
-  height: 350px;
-  border-radius: 20px;
-  z-index: 1;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-}
+    /* arrows */
+    .arrows {
+        position: absolute;
+        top: 80%;
+        right: 52%;
+        z-index: 100;
+        width: 300px;
+        max-width: 30%;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
 
-.bg {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 290px;
-  height: 340px;
-  z-index: 2;
-  background: rgba(255, 255, 255, .85);
-  backdrop-filter: blur(12px);
-  border-radius: 15px;
-  overflow: hidden;
-  outline: 2px solid rgba(255, 0, 0, 0.2);
-}
+    .arrows button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #eee4;
+        border: none;
+        color: #fff;
+        font-family: monospace;
+        font-weight: bold;
+        transition: .5s;
+    }
 
-.blob {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  /* background-color: rgba(28, 25, 25, 0.6); */
-  background-color: #f1683a;
-  filter: blur(20px);
-  animation: blob-bounce 5s infinite ease;
-}
+    .arrows button:hover {
+        background-color: #fff;
+        color: #000;
+    }
 
-.content {
-  z-index: 3;
-  text-align: center;
-  color: #333;
-  padding: 20px;
-}
+    @media (max-width: 480px) {
 
-h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 16px;
-}
-#map {
-            height: 400px;
-            width: 100%;
-            margin-top: 20px;
-            border-radius: 15px; /* Add rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+        .carousel .list .item .content {
+            top: 20%;
         }
 
-@keyframes blob-bounce {
-  0% {
-    transform: translate(-100%, -100%) translate3d(0, 0, 0);
-  }
+        .carousel .list .item .title,
+        .carousel .list .item .topic {
+            font-size: 1.5em;
+            /* Further reduce font size */
+        }
 
-  25% {
-    transform: translate(-100%, -100%) translate3d(100%, 0, 0);
-  }
+        .thumbnail .item {
+            width: 70px;
+            height: 100px;
+        }
 
-  50% {
-    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
-  }
+        .arrows {
+            top: 85%;
+            /* Adjust for smaller screens */
+            right: 50%;
+        }
 
-  75% {
-    transform: translate(-100%, -100%) translate3d(0, 100%, 0);
-  }
+        .dsimg {
+            display: none;
+        }
 
-  100% {
-    transform: translate(-100%, -100%) translate3d(0, 0, 0);
-  }
-}
+        .showimage {
+            width: 50%;
+            height: 50%;
+            display: flex;
+        }
+    }
 
-/* carousel Buttons */
-.btn {
- display: inline-block;
- padding: 0.9rem 1.8rem;
- font-size: 16px;
- font-weight: 700;
- color: white;
- border: 3px solid rgb(209,7,5);
- cursor: pointer;
- position: relative;
- background-color: transparent;
- text-decoration: none;
- overflow: hidden;
- z-index: 1;
- font-family: inherit;
-}
+    /* animation */
+    .carousel .list .item:nth-child(1) {
+        z-index: 1;
+    }
 
-.btn::before {
- content: "";
- position: absolute;
- left: 0;
- top: 0;
- width: 100%;
- height: 100%;
- background-color: rgb(209,7,5);
- transform: translateX(-100%);
- transition: all .5s;
- z-index: -1;
-}
+    /* animation text in first item */
 
-.btn:hover::before {
- transform: translateX(0);
-}
+    .carousel .list .item:nth-child(1) .content .author,
+    .carousel .list .item:nth-child(1) .content .title,
+    .carousel .list .item:nth-child(1) .content .topic,
+    .carousel .list .item:nth-child(1) .content .des,
+    .carousel .list .item:nth-child(1) .content .buttons {
+        transform: translateY(50px);
+        filter: blur(20px);
+        opacity: 0;
+        animation: showContent .5s 1s linear 1 forwards;
+    }
+
+    @keyframes showContent {
+        to {
+            transform: translateY(0px);
+            filter: blur(0px);
+            opacity: 1;
+        }
+    }
+
+    .carousel .list .item:nth-child(1) .content .title {
+        animation-delay: 1.2s !important;
+    }
+
+    .carousel .list .item:nth-child(1) .content .topic {
+        animation-delay: 1.4s !important;
+    }
+
+    .carousel .list .item:nth-child(1) .content .des {
+        animation-delay: 1.6s !important;
+    }
+
+    .carousel .list .item:nth-child(1) .content .buttons {
+        animation-delay: 1.8s !important;
+    }
+
+    /* create animation when next click */
+    .carousel.next .list .item:nth-child(1) img {
+        width: 150px;
+        height: 220px;
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 30px;
+        animation: showImage .5s linear 1 forwards;
+    }
+
+    @keyframes showImage {
+        to {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+        }
+    }
+
+    .carousel.next .thumbnail .item:nth-last-child(1) {
+        overflow: hidden;
+        animation: showThumbnail .5s linear 1 forwards;
+    }
+
+    .carousel.prev .list .item img {
+        z-index: 100;
+    }
+
+    @keyframes showThumbnail {
+        from {
+            width: 0;
+            opacity: 0;
+        }
+    }
+
+    .carousel.next .thumbnail {
+        animation: effectNext .5s linear 1 forwards;
+    }
+
+    @keyframes effectNext {
+        from {
+            transform: translateX(150px);
+        }
+    }
+
+    /* running time */
+
+    .carousel .time {
+        position: absolute;
+        z-index: 1;
+        width: 0%;
+        height: 3px;
+        background-color: #f1683a;
+        left: 0;
+        top: 0;
+    }
+
+    .carousel.next .time,
+    .carousel.prev .time {
+        animation: runningTime 3s linear 1 forwards;
+    }
+
+    @keyframes runningTime {
+        from {
+            width: 100%
+        }
+
+        to {
+            width: 0
+        }
+    }
+
+
+    /* prev click */
+
+    .carousel.prev .list .item:nth-child(2) {
+        z-index: 2;
+    }
+
+    .carousel.prev .list .item:nth-child(2) img {
+        animation: outFrame 0.5s linear 1 forwards;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    @keyframes outFrame {
+        to {
+            width: 150px;
+            height: 220px;
+            bottom: 50px;
+            left: 50%;
+            border-radius: 20px;
+        }
+    }
+
+    .carousel.prev .thumbnail .item:nth-child(1) {
+        overflow: hidden;
+        opacity: 0;
+        animation: showThumbnail .5s linear 1 forwards;
+    }
+
+    .carousel.next .arrows button,
+    .carousel.prev .arrows button {
+        pointer-events: none;
+    }
+
+    .carousel.prev .list .item:nth-child(2) .content .author,
+    .carousel.prev .list .item:nth-child(2) .content .title,
+    .carousel.prev .list .item:nth-child(2) .content .topic,
+    .carousel.prev .list .item:nth-child(2) .content .des,
+    .carousel.prev .list .item:nth-child(2) .content .buttons {
+        animation: contentOut 1.5s linear 1 forwards !important;
+    }
+
+    @keyframes contentOut {
+        to {
+            transform: translateY(-150px);
+            filter: blur(20px);
+            opacity: 0;
+        }
+    }
+
+    @media screen and (max-width: 678px) {
+        .carousel .list .item .content {
+            padding-right: 0;
+        }
+
+        .carousel .list .item .content .title {
+            font-size: 30px;
+        }
+    }
+
+    .card {
+        position: relative;
+        width: 300px;
+        height: 350px;
+        border-radius: 20px;
+        z-index: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .bg {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 290px;
+        height: 340px;
+        z-index: 2;
+        background: rgba(255, 255, 255, .85);
+        backdrop-filter: blur(12px);
+        border-radius: 15px;
+        overflow: hidden;
+        outline: 2px solid rgba(255, 0, 0, 0.2);
+    }
+
+    .blob {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        /* background-color: rgba(28, 25, 25, 0.6); */
+        background-color: #f1683a;
+        filter: blur(20px);
+        animation: blob-bounce 5s infinite ease;
+    }
+
+    .content {
+        z-index: 3;
+        text-align: center;
+        color: #333;
+        padding: 20px;
+    }
+
+    h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    #map {
+        height: 400px;
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 15px;
+        /* Add rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Add subtle shadow */
+    }
+
+    @keyframes blob-bounce {
+        0% {
+            transform: translate(-100%, -100%) translate3d(0, 0, 0);
+        }
+
+        25% {
+            transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+        }
+
+        50% {
+            transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+        }
+
+        75% {
+            transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+        }
+
+        100% {
+            transform: translate(-100%, -100%) translate3d(0, 0, 0);
+        }
+    }
+
+    /* carousel Buttons */
+    .btn {
+        display: inline-block;
+        padding: 0.9rem 1.8rem;
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+        border: 3px solid rgb(209, 7, 5);
+        cursor: pointer;
+        position: relative;
+        background-color: transparent;
+        text-decoration: none;
+        overflow: hidden;
+        z-index: 1;
+        font-family: inherit;
+    }
+
+    .btn::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(209, 7, 5);
+        transform: translateX(-100%);
+        transition: all .5s;
+        z-index: -1;
+    }
+
+    .btn:hover::before {
+        transform: translateX(0);
+    }
 
 
 
-/* FAQ */
-.accordion-button {
-    background-color: #f1683a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
-   
-}
+    /* FAQ */
+    .accordion-button {
+        background-color: #f1683a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        transition: background-color 0.3s ease;
 
-.accordion-button:hover {
-    background-color: #f1683a;
-}
+    }
 
-.accordion-button:focus {
-    box-shadow: 0 0 0 0.2rem rgba(111, 88, 224, 0.25);
-}
+    .accordion-button:hover {
+        background-color: #f1683a;
+    }
 
-.accordion-body {
-    background-color: #f9f9f9;
-    border: 1px solid #e3e3e3;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    
-}
+    .accordion-button:focus {
+        box-shadow: 0 0 0 0.2rem rgba(111, 88, 224, 0.25);
+    }
 
-.accordion-item {
-    border: none;
-}
+    .accordion-body {
+        background-color: #f9f9f9;
+        border: 1px solid #e3e3e3;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
 
-.faq-image-container {
-    height: 100%; /* Ensure the container takes up the full height of its column */
-    padding: 20px;
-}
+    }
 
-.faq-image {
-    max-width: 100%;
-    height: 300px; /* Set a fixed height */
-    object-fit: cover; /* Maintain aspect ratio while covering the area */
-    border-radius: 10px;
-    /* box-shadow: 0 8px 20px rgba(172, 61, 61, 0.15); */
-}
+    .accordion-item {
+        border: none;
+    }
 
-/* .container {
+    .faq-image-container {
+        height: 100%;
+        /* Ensure the container takes up the full height of its column */
+        padding: 20px;
+    }
+
+    .faq-image {
+        max-width: 100%;
+        height: 300px;
+        /* Set a fixed height */
+        object-fit: cover;
+        /* Maintain aspect ratio while covering the area */
+        border-radius: 10px;
+        /* box-shadow: 0 8px 20px rgba(172, 61, 61, 0.15); */
+    }
+
+    /* .container {
     padding: 20px;
 } */
 
-.collapse.show {
-    display: block; /* Ensures the transition works correctly */
-}
-
-.list-group-item {
-            background-color: #FF6600;
-            color: #fff;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            border: none;
-            /* border-radius: 10px; */
-            height: 50px;
-            border-radius: 20px;
-        }
-        
-        .list-group-item:hover, .list-group-item.active {
-            background-color: royalblue;
-            transform: scale(1.05);
-        }
-    
-        .content-grid {
-            display: none;
-        }
-    
-        .content-grid.active {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    
-        .hover-zoom {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-    
-        .hover-zoom:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-    
-        @media (max-width: 767px) {
-            .list-group-item {
-                text-align: center;
-            }
-        }
-
-        .images img {
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            max-width:90%;
-            height: auto;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        .fade-in-image { 
-    animation: fadeIn 3s ease-in-out, scaleUp 3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    0% { 
-        opacity: 0; 
-        transform: scale(0.8);
+    .collapse.show {
+        display: block;
+        /* Ensures the transition works correctly */
     }
-    50% {
-        opacity: 0.5;
+
+    .list-group-item {
+        background-color: #FF6600;
+        color: #fff;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        border: none;
+        /* border-radius: 10px; */
+        height: 50px;
+        border-radius: 20px;
+    }
+
+    .list-group-item:hover,
+    .list-group-item.active {
+        background-color: royalblue;
         transform: scale(1.05);
     }
-    100% { 
-        opacity: 1; 
-        transform: scale(1);
-    }
-}
 
-@keyframes scaleUp {
-    0% { 
-        transform: scale(0.8); 
+    .content-grid {
+        display: none;
     }
-    50% {
-        transform: scale(1.02);
+
+    .content-grid.active {
+        display: flex;
+        flex-wrap: wrap;
     }
-    100% { 
-        transform: scale(1); 
+
+    .hover-zoom {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-}
-        /* Custom styles */
-         /* Custom styles */
-         .contact-section {
-            padding: 50px 0;
-            background-color: #f8f9fa;
+
+    .hover-zoom:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 767px) {
+        .list-group-item {
             text-align: center;
         }
+    }
 
-        .contact-title {
-            font-size: 40px;
-            font-weight: 700;
-            color: #343a40;
-            margin-bottom: 20px;
+    .images img {
+        width: 100%;
+        /* Ensure the image takes the full width of the card */
+        height: 250px;
+        /* Fixed height to ensure consistency across all images */
+        object-fit: cover;
+        /* Ensure the image is cropped to fill the area */
+        border-radius: 10px;
+        /* Rounded corners */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        /* Add shadow for aesthetics */
+    }
+
+    /* For mobile devices: 2 images per row */
+
+
+    .fade-in-image {
+        animation: fadeIn 3s ease-in-out, scaleUp 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
         }
 
-        .contact-subtitle {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 40px;
+        50% {
+            opacity: 0.5;
+            transform: scale(1.05);
         }
 
-        .map-container {
-            height: 400px;
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease-in-out;
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes scaleUp {
+        0% {
+            transform: scale(0.8);
         }
 
-        /* .map-container:hover {
+        50% {
+            transform: scale(1.02);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* Custom styles */
+    /* Custom styles */
+    .contact-section {
+        padding: 50px 0;
+        background-color: #f8f9fa;
+        text-align: center;
+    }
+
+    .contact-title {
+        font-size: 40px;
+        font-weight: 700;
+        color: #343a40;
+        margin-bottom: 20px;
+    }
+
+    .contact-subtitle {
+        font-size: 18px;
+        color: #495057;
+        margin-bottom: 40px;
+    }
+
+    .map-container {
+        height: 400px;
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* .map-container:hover {
             transform: scale(1.05);
         } */
 
-        .contact-info {
-            font-size: 16px;
-            color: #495057;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
+    .contact-info {
+        font-size: 16px;
+        color: #495057;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
 
-        .contact-info strong {
-            font-size: 18px;
-            color: #343a40;
-            display: block;
-            margin-bottom: 5px;
-        }
+    .contact-info strong {
+        font-size: 18px;
+        color: #343a40;
+        display: block;
+        margin-bottom: 5px;
+    }
 
 
-        /* .container {
+    /* .container {
     max-width: 100%;
     padding: 15px;
 } */
 
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.title-mymessage {
-    font-size: 28px;
-    color: royalblue;
-    font-weight: 600;
-    letter-spacing: -1px;
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-    position: relative;
-}
-
-.title-mymessage::before,
-.title-mymessage::after {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    left: 0px;
-    background-color: royalblue;
-}
-
-.title-mymessage::before {
-    width: 18px;
-    height: 18px;
-}
-
-.title-mymessage::after {
-    width: 18px;
-    height: 18px;
-    animation: pulse 1s linear infinite;
-}
-
-.mymessage,
-.signin {
-    color: rgba(88, 87, 87, 0.822);
-    font-size: 14px;
-}
-
-.signin {
-    text-align: center;
-}
-
-.signin a {
-    color: royalblue;
-}
-
-.signin a:hover {
-    text-decoration: underline royalblue;
-}
-
-.form label {
-    position: relative;
-}
-
-.form label .input {
-    width: 100%;
-    padding: 10px 10px 20px 10px;
-    outline: 0;
-    border: 1px solid rgba(105, 105, 105, 0.397);
-    border-radius: 10px;
-}
-
-.form label .input + span {
-    position: absolute;
-    left: 10px;
-    top: 15px;
-    color: grey;
-    font-size: 0.9em;
-    cursor: text;
-    transition: 0.3s ease;
-}
-
-.form label .input:placeholder-shown + span {
-    top: 15px;
-    font-size: 0.9em;
-}
-
-.form label .input:focus + span,
-.form label .input:valid + span {
-    top: 30px;
-    font-size: 0.7em;
-    font-weight: 600;
-}
-
-.form label .input:valid + span {
-    color: green;
-}
-
-.submit {
-    border: none;
-    outline: none;
-    background-color: royalblue;
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.submit:hover {
-    background-color: rgb(56, 90, 194);
-}
-
-@keyframes pulse {
-    from {
-        transform: scale(0.9);
-        opacity: 1;
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
-    to {
-        transform: scale(1.8);
-        opacity: 0;
+
+    .title-mymessage {
+        font-size: 28px;
+        color: royalblue;
+        font-weight: 600;
+        letter-spacing: -1px;
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+        position: relative;
     }
-}
 
-hr.custom-hr {
-    border: none; /* Remove the default border */
-    height: 2px; /* Set the thickness of the line */
-    background-color: royalblue; /* Set the color of the line */
-    border-radius: 5px; /* Add rounded corners to the line */
-    margin: 20px 0; /* Add spacing above and below the line */
-    width: 100%; /* Set the line to take up full width */
-}
+    .title-mymessage::before,
+    .title-mymessage::after {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        left: 0px;
+        background-color: royalblue;
+    }
 
-/* Loader */
-.loader {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      top: 0;
-      left: 0;
-      width: 100px;
-      height: 100px;
-      position: fixed; /* Ensure it stays in place */
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 9999; /* Ensure it appears above other content */
+    .title-mymessage::before {
+        width: 18px;
+        height: 18px;
+    }
+
+    .title-mymessage::after {
+        width: 18px;
+        height: 18px;
+        animation: pulse 1s linear infinite;
+    }
+
+    .mymessage,
+    .signin {
+        color: rgba(88, 87, 87, 0.822);
+        font-size: 14px;
+    }
+
+    .signin {
+        text-align: center;
+    }
+
+    .signin a {
+        color: royalblue;
+    }
+
+    .signin a:hover {
+        text-decoration: underline royalblue;
+    }
+
+    .form label {
+        position: relative;
+    }
+
+    .form label .input {
+        width: 100%;
+        padding: 10px 10px 20px 10px;
+        outline: 0;
+        border: 1px solid rgba(105, 105, 105, 0.397);
+        border-radius: 10px;
+    }
+
+    .form label .input+span {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        color: grey;
+        font-size: 0.9em;
+        cursor: text;
+        transition: 0.3s ease;
+    }
+
+    .form label .input:placeholder-shown+span {
+        top: 15px;
+        font-size: 0.9em;
+    }
+
+    .form label .input:focus+span,
+    .form label .input:valid+span {
+        top: 30px;
+        font-size: 0.7em;
+        font-weight: 600;
+    }
+
+    .form label .input:valid+span {
+        color: green;
+    }
+
+    .submit {
+        border: none;
+        outline: none;
+        background-color: royalblue;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .submit:hover {
+        background-color: rgb(56, 90, 194);
+    }
+
+    @keyframes pulse {
+        from {
+            transform: scale(0.9);
+            opacity: 1;
+        }
+
+        to {
+            transform: scale(1.8);
+            opacity: 0;
+        }
+    }
+
+    hr.custom-hr {
+        border: none;
+        /* Remove the default border */
+        height: 2px;
+        /* Set the thickness of the line */
+        background-color: royalblue;
+        /* Set the color of the line */
+        border-radius: 5px;
+        /* Add rounded corners to the line */
+        margin: 20px 0;
+        /* Add spacing above and below the line */
+        width: 100%;
+        /* Set the line to take up full width */
+    }
+
+    /* Loader */
+    .loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        /* Ensure it stays in place */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        /* Ensure it appears above other content */
     }
 
     .loader::after {
-      content: "";
-      width: 75px;
-      height: 75px;
-      border: 15px solid #dddddd;
-      border-top-color: #FF6600;
-      border-radius: 50%;
-      animation: loading 0.75s ease-out infinite;
+        content: "";
+        width: 75px;
+        height: 75px;
+        border: 15px solid #dddddd;
+        border-top-color: #FF6600;
+        border-radius: 50%;
+        animation: loading 0.75s ease-out infinite;
     }
 
     @keyframes loading {
-      from {
-        transform: rotate(0turn);
-      }
+        from {
+            transform: rotate(0turn);
+        }
 
-      to {
-        transform: rotate(1turn);
-      }
+        to {
+            transform: rotate(1turn);
+        }
     }
 
 
@@ -792,455 +900,625 @@ hr.custom-hr {
         border-top: 1px solid #444;
 
         margin-top: 10px;
-            background-color: #fff;
-            color: #FF6600;
-            padding: 40px 0;
-            position: relative;
-            z-index: 10;
-            font-size: larger;
-        }
+        background-color: #fff;
+        color: #FF6600;
+        padding: 40px 0;
+        position: relative;
+        z-index: 10;
+        font-size: larger;
+    }
 
-        .footer .footer-logo img {
-            max-height: 50px;
-            margin-bottom: 20px;
-        }
+    .footer .footer-logo img {
+        max-height: 50px;
+        margin-bottom: 20px;
+    }
 
-        .footer .social-icons a {
-            color: #ff5722;
-            margin: 0 10px;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
+    .footer .social-icons a {
+        color: #ff5722;
+        margin: 0 10px;
+        font-size: 18px;
+        transition: color 0.3s ease;
+    }
 
-        .footer .social-icons a:hover {
-            color: #000;
-        }
+    .footer .social-icons a:hover {
+        color: #000;
+    }
 
-        .footer h5 {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
+    .footer h5 {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
 
-        .footer .footer-links a {
-            color: #ff5722;
-            text-decoration: none;
-            margin-bottom: 10px;
-            display: block;
-            transition: color 0.3s ease;
-        }
+    .footer .footer-links a {
+        color: #ff5722;
+        text-decoration: none;
+        margin-bottom: 10px;
+        display: block;
+        transition: color 0.3s ease;
+    }
 
-        .footer .footer-links a:hover {
-            color: #000;
-        }
+    .footer .footer-links a:hover {
+        color: #000;
+    }
 
-        .footer .footer-contact p {
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #ff5722;
-        }
+    .footer .footer-contact p {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #ff5722;
+    }
 
-        .footer .footer-contact a {
-            color: #ff5722;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    .footer .footer-contact a {
+        color: #ff5722;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
 
-        .footer .footer-contact a:hover {
-            color: #000;
-        }
+    .footer .footer-contact a:hover {
+        color: #000;
+    }
 
-        .footer .copyright {
-            text-align: center;
-            padding-top: 20px;
-            font-size: 14px;
-            color: #ff5722;
-            border-top: 1px solid #444;
-            margin-top: 40px;
-        }
-        .footer .developer-info {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 14px;
-            color: #000000;
-        }
+    .footer .copyright {
+        text-align: center;
+        padding-top: 20px;
+        font-size: 14px;
+        color: #ff5722;
+        border-top: 1px solid #444;
+        margin-top: 40px;
+    }
 
-        .footer .developer-info a {
-            color: #ff5722;
-            text-decoration: none;
-            margin: 0 5px;
-        }
+    .footer .developer-info {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #000000;
+    }
 
-        .footer .developer-info a:hover {
-            color: #000000;
-        }
+    .footer .developer-info a {
+        color: #ff5722;
+        text-decoration: none;
+        margin: 0 5px;
+    }
+
+    .footer .developer-info a:hover {
+        color: #000000;
+    }
+
+    .nav-link {
+        color: #000;
+    }
 </style>
 <!-- Carousel -->
 
 
 <div class="carousel">
-  <!-- list item -->
-  <div class="list">
-      <div class="item">
-          <img src="https://i.pinimg.com/564x/02/09/1f/02091f787de90081b2ea97ac912a2c4c.jpg">
-          <div class="content">
-              <div class="author">Ultron Arts</div>
-              <div class="title">Acrylic Sign Boards</div>
-              <div class="topic"> Sign Boards</div>
-              <div class="des" style="font-size: larger; font-weight:900">
-                Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Business
-              </div>
-              <div class="buttons">
-                <button>GET STARTED</button>
-                <a href="#contact"><button>GET IN TOUCH</button></a>
-              </div>
-          </div>
-      </div>
-      <div class="item">
-          <img src="https://i.pinimg.com/564x/59/7e/a0/597ea0e1c6c8856b820ae12b56da5928.jpg">
-          <div class="content">
-            <div class="author">Ultron Arts</div>
-            <div class="title">Acrylic Sign Boards</div>
-            <div class="topic"> Sign Boards</div>
-            <div class="des" style="font-size: larger;  font-weight:900">
-                Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Business
+    <!-- list item -->
+    <div class="list">
+        <div class="item">
+            <img src="{% static '/images/trail.jpg' %}" alt="Logo">
+            <div class="content">
+                <div class="author">Ultron Arts</div>
+                <div class="title">Acrylic Sign Boards</div>
+                <div class="topic"> Sign Boards</div>
+                <div class="des" style="font-size: larger; font-weight:600">
+                    Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of
+                    Your Business
+                </div>
+                <div class="buttons">
+                    <a href="#services"><button>LET'S GET STARTED</button></a>
+                    <a href="#contact"><button>GET IN TOUCH</button></a>
+                </div>
             </div>
-              <div class="buttons">
-                  <button>GET STARTED</button>
-                  <a href="#contact"><button>GET IN TOUCH</button></a>
-              </div>
-          </div>
-      </div>
-      <div class="item">
-        <img src="https://i.pinimg.com/564x/f4/77/1a/f4771a3939c7f0b6fd518779f42c6894.jpg">
-        <div class="content">
-            <div class="author">Ultron Arts</div>
-            <div class="title">Acrylic Sign Boards</div>
-            <div class="topic">Sign Boards</div>
-            <div class="des" style="font-size: larger; font-weight:900">
-                Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of Your Business
+        </div>
+        <div class="item">
+            <img src="{% static '/images/trail4.jpg' %}" alt="Logo">
+            <div class="content">
+                <div class="author">Ultron Arts</div>
+                <div class="title">Acrylic Sign Boards</div>
+                <div class="topic"> Sign Boards</div>
+                <div class="des" style="font-size: larger; font-weight:600">
+                    Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of
+                    Your Business
+                </div>
+                <div class="buttons">
+                    <a href="#services"><button>LET'S GET STARTED</button></a>
+                    <a href="#contact"><button>GET IN TOUCH</button></a>
+                </div>
             </div>
-              <div class="buttons">
-                <button>GET STARTED</button>
-                <a href="#contact"><button>GET IN TOUCH</button></a>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- list thumnail -->
-  <div class="thumbnail">
-      <div class="item">
-          <img src="https://i.pinimg.com/564x/f4/77/1a/f4771a3939c7f0b6fd518779f42c6894.jpg">
-          <div class="content">
-              <div class="title">
-                
-              </div>
-              <div class="description">
-    
-              </div>
-          </div>
-      </div>
-      <div class="item">
-          <img src="https://i.pinimg.com/564x/59/7e/a0/597ea0e1c6c8856b820ae12b56da5928.jpg">
-          <div class="content">
-              <div class="title">
-                  
-              </div>
-              <div class="description">
-                  
-              </div>
-          </div>
-      </div>
-      <div class="item">
-          <img src="https://i.pinimg.com/564x/02/09/1f/02091f787de90081b2ea97ac912a2c4c.jpg">
-          <div class="content">
-              <div class="title">
-                  
-              </div>
-              <div class="description">
-                  
-              </div>
-          </div>
-      </div>
-    
-  </div>
-  <!-- next prev -->
+        </div>
+        <div class="item">
+            <img src="{% static '/images/trail6.jpg' %}" alt="Logo">
+            <div class="content">
+                <div class="author">Ultron Arts</div>
+                <div class="title">Acrylic Sign Boards</div>
+                <div class="topic">Sign Boards</div>
+                <div class="des" style="font-size: larger; font-weight:600">
+                    Sign Boards To Highlight Business And To Stand Out In Crowd Because Sign Boards Are The Presentor of
+                    Your Business
+                </div>
+                <div class="buttons">
+                    <a href="#services"><button>LET'S GET STARTED</button></a>
+                    <a href="#contact"><button>GET IN TOUCH</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- list thumnail -->
+    <div class="thumbnail">
+        <div class="item">
+            <img src="{% static '/images/trail.jpg' %}" alt="Logo">
+            <div class="content">
+                <div class="title">
 
-  <div class="arrows">
-      <button id="prev"><</button>
-      <button id="next">></button>
-  </div>
-  <!-- time running -->
-  <div class="time"></div>
+                </div>
+                <div class="description">
+
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static '/images/trail4.jpg' %}" alt="Logo">
+            <div class="content">
+                <div class="title">
+
+                </div>
+                <div class="description">
+
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static '/images/trail6.jpg' %}" alt="Logo">
+            <div class="content">
+                <div class="title">
+
+                </div>
+                <div class="description">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- next prev -->
+
+    <div class="arrows">
+        <button id="prev">
+            << /button>
+                <button id="next">></button>
+    </div>
+    <!-- time running -->
+    <div class="time"></div>
 </div>
 
+<!-- services ui update -->
+<div class="container justify-content-center mt-3">
+    <div class="container mt-5 " style="color: #000;">
+        <h1 class="text-center">Our Services</h1>
+    </div>
+    <div class="container col-md-6 col-sm-12" id="services" style="color: #000;">
+        <p class="text-center">Bringing your brand to life with stunning 3D glow signages, sleek 2D designs, and elegant acrylic nameplates that leave a lasting impression!</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4 d-flex justify-content-center">
+            <div class="card images" style="width: 18rem; height: auto;">
+                <img src="{% static  'images/3d_glow.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5>3d glow Signages</h5>
+                    <p class="card-text">3D glow signages are a popular choice for businesses looking to create eye-catching, vibrant, and modern displays. These signs combine depth, illumination, and high-quality materials to deliver a striking visual appeal both day and night.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 d-flex justify-content-center">
+            <div class="card images" style="width: 18rem; height: auto;">
+                <img src="{% static  'images/2d_glow.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="text-center">2d signages</h5>
+                    <p class="card-text">2D signages offer a sleek and minimalist approach to displaying your brand or message with clarity and style. These signs are perfect for businesses seeking a professional and clean look whether for storefronts, indoor displays, or directional signs.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4 d-flex justify-content-center">
+            <div class="card images" style="width: 18rem; height: auto;">
+                <img src="{% static  'images/nameplates.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5>Acrylic nameplates</h5>
+                    <p class="card-text">Acrylic nameplates combine elegance and durability, making them the perfect choice for a professional and polished look. With a sleek, glass-like finish, these nameplates offer a modern and sophisticated appearance, ideal for offices, homes, or storefronts.</p>
+                </div>
+            </div>
+        </div>
+
+        
+
+</div>
 
 <!-- Our Services -->
 <div class="container w-100 " id="services" style="background-color: #f9f9f9;">
 
 
-<div class="container mt-5 " style="color: #000;">
-  <h1 class="text-center">Our Services</h1>
-</div>
-<div class="container w-50" id="services" style="color: #000;">
-  <p class="text-center">Excellent customer service is the number one job in any company! It is the personality of the company and the reason customers come back. Without customers there is no company!</p>
-</div>
-
-<div class="container d-flex justify-content-center align-items-center">
-  <div class="row">
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <div class="bg"></div>
-        <div class="blob"></div>
-        <div class="content">
-          <h2>Acrylic Signages</h2>
-          <p>
-            Aluminium composite panels (ACP), made of aluminium composite material (ACM), are flat panels consisting of two thin coil-coated aluminium sheets bonded to a non-aluminium core. ACPs are frequently used for external cladding or facades of buildings, insulation, and signage.
-          </p>
-        </div>
-      </div>
+    <div class="container mt-5 " style="color: #000;">
+        <h1 class="text-center">Our Services</h1>
+    </div>
+    <div class="container w-50" id="services" style="color: #000;">
+        <p class="text-center">Excellent customer service is the number one job in any company! It is the personality of
+            the company and the reason customers come back. Without customers there is no company!</p>
     </div>
 
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <div class="bg"></div>
-        <div class="blob"></div>
-        <div class="content">
-          <h2>ACP Paneling</h2>
-          <p>
-            Aluminium composite panels (ACP), made of aluminium composite material (ACM), are flat panels consisting of two thin coil-coated aluminium sheets bonded to a non-aluminium core. ACPs are frequently used for external cladding or facades of buildings, insulation, and signage.
-          </p>
-        </div>
-      </div>
-    </div>
+    <div class="container align-items-center">
+        <div class="row">
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+                <div class="card ">
+                    <div class="bg"></div>
+                    <div class="blob"></div>
+                    <div class="content">
+                        <h2>Acrylic Signages</h2>
+                        <p>
+                            Aluminium composite panels (ACP), made of aluminium composite material (ACM), are flat
+                            panels consisting of two thin coil-coated aluminium sheets bonded to a non-aluminium core.
+                            ACPs are frequently used for external cladding or facades of buildings, insulation, and
+                            signage.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <div class="bg"></div>
-        <div class="blob"></div>
-        <div class="content">
-          <h2>Printing Services</h2>
-          <p>We provide best quality digital printing for Visiting Cards, Pamphlets/Brochures, Bill Books/Hand Bills, Letter Heads, Envelopes, Stickers, and best quality Flex Banner Printing and Vinyl Printing.</p>
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+                <div class="card">
+                    <div class="bg"></div>
+                    <div class="blob"></div>
+                    <div class="content">
+                        <h2>ACP Paneling</h2>
+                        <p>
+                            Aluminium composite panels (ACP), made of aluminium composite material (ACM), are flat
+                            panels consisting of two thin coil-coated aluminium sheets bonded to a non-aluminium core.
+                            ACPs are frequently used for external cladding or facades of buildings, insulation, and
+                            signage.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+                <div class="card">
+                    <div class="bg"></div>
+                    <div class="blob"></div>
+                    <div class="content">
+                        <h2>Printing Services</h2>
+                        <p>We provide best quality digital printing for Visiting Cards, Pamphlets/Brochures, Bill
+                            Books/Hand Bills, Letter Heads, Envelopes, Stickers, and best quality Flex Banner Printing
+                            and Vinyl Printing.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
 </div>
 
-<!-- Featured work -->
+
 <div class="container w-100" style="background-color: #e0cbcb00;" id="portfolio">
     <div class="container mt-5" id="services" style="color: #000;">
         <h1 class="text-center">Featured Works</h1>
     </div>
     <div class="container w-50" id="services" style="color: #000;">
-        <p class="text-center">Creativity has no bar! We believe in designing and Manufacturing Best Signages and Acrylic Products for You or Your business or brand</p>
+        <p class="text-center">Creativity has no bar! We believe in designing and manufacturing the best signages and
+            acrylic products for you or your business or brand.</p>
     </div>
 
-    <div class="container-fluid py-5" id="portfolio">
-    
-    
-        <div class="row mt-5">
-            <!-- Navigation Panel -->
-            <div class="col-md-3 mb-4">
-                <div class="list-group">
-                    <button class="list-group-item list-group-item-action active" data-target="#all-work">ALL WORK</button>
-                    
-                    <button class="list-group-item list-group-item-action mt-3" data-target="#three-d-glow-signage">3D GLOW SIGNAGE</button>
-                    <button class="list-group-item list-group-item-action mt-3" data-target="#non-glow-signage">3D NON-GLOW SIGNAGE</button>
-                    <button class="list-group-item list-group-item-action mt-3" data-target="#two-d-signage">2D SIGNAGES</button>
-                    <button class="list-group-item list-group-item-action mt-3" data-target="#acp-panelling">ACP PANELLING</button>
-                    <button class="list-group-item list-group-item-action mt-3" data-target="#acrylic-nameplates">ACRYLIC NAMEPLATES</button>
-                    <button class="list-group-item list-group-item-action mt-3" data-target="#acrylic-products">ACRYLIC PRODUCTS</button>
-                    <button class="list-group-item list-group-item-action mt-3" data-target="#digital-printing">DIGITAL PRINTING</button>
-                    {% comment %} <button class="list-group-item list-group-item-action mt-3" data-target="#banner-printing">BANNER PRINTING</button> {% endcomment %}
+    <!-- Tabs for Categories -->
+    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="all-work-tab" data-bs-toggle="tab" href="#all-work" role="tab"
+                aria-controls="all-work" aria-selected="true">All Work</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="three-d-glow-signage-tab" data-bs-toggle="tab" href="#three-d-glow-signage"
+                role="tab" aria-controls="three-d-glow-signage" aria-selected="false">3D Glow Signage</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="non-glow-signage-tab" data-bs-toggle="tab" href="#non-glow-signage" role="tab"
+                aria-controls="non-glow-signage" aria-selected="false">3D Non-Glow Signage</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="two-d-signage-tab" data-bs-toggle="tab" href="#two-d-signage" role="tab"
+                aria-controls="two-d-signage" aria-selected="false">2D Signages</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="acp-panelling-tab" data-bs-toggle="tab" href="#acp-panelling" role="tab"
+                aria-controls="acp-panelling" aria-selected="false">ACP Panelling</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="acrylic-nameplates-tab" data-bs-toggle="tab" href="#acrylic-nameplates" role="tab"
+                aria-controls="acrylic-nameplates" aria-selected="false">Acrylic Nameplates</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="acrylic-products-tab" data-bs-toggle="tab" href="#acrylic-products" role="tab"
+                aria-controls="acrylic-products" aria-selected="false">Acrylic Products</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="digital-printing-tab" data-bs-toggle="tab" href="#digital-printing" role="tab"
+                aria-controls="digital-printing" aria-selected="false">Digital Printing</a>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+
+    <div class="tab-content py-4" id="myTabContent">
+        <!-- All Work -->
+        <div class="tab-pane fade show active" id="all-work" role="tabpanel" aria-labelledby="all-work-tab">
+            <div class="row images">
+                {% for image in images %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-3">
+                    <div class="card flex-fill h-100" style="width: 50%;">
+                        <img src="{{ image.photo.url }}" class="card-img-top img-fluid rounded hover-zoom"
+                            alt="{{ image.category }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ image.category }}</h5>
+                        </div>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-    
-    
-         <!-- Image Display Panel -->
-<!-- Image Display Panel -->
-<div class="col-md-9">
-    <div class="row">
-        <!-- ALL WORK Grid -->
-        <div id="all-work" class="content-grid row fade-in-image">
-            {% for image in images %}
-            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
-                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
-            </div>
-            {% endfor %}
         </div>
 
-        <!-- 3D GLOW SIGNAGE Grid -->
-        <div id="three-d-glow-signage" class="content-grid row">
-            {% for image in images %}
-            {% if image.category == "3d glow signage" %}
-            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
-                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+        <!-- 3D Glow Signage -->
+        <div class="tab-pane fade" id="three-d-glow-signage" role="tabpanel" aria-labelledby="three-d-glow-signage-tab">
+            <div class="row images">
+                {% for image in images %}
+                {% if image.category == "3d glow signage" %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-3">
+                    <div class="card flex-fill h-100" style="width: 50%;">
+                        <img src="{{ image.photo.url }}" class="card-img-top img-fluid rounded hover-zoom"
+                            alt="{{ image.category }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ image.category }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
 
-        <!-- NON-GLOW SIGNAGE Grid -->
-        <div id="non-glow-signage" class="content-grid row">
-            {% for image in images %}
-            {% if image.category == "3d non glow signage" %}
-            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
-                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+        <!-- 3D Non-Glow Signage -->
+        <div class="tab-pane fade" id="non-glow-signage" role="tabpanel" aria-labelledby="non-glow-signage-tab">
+            <div class="row images">
+                {% for image in images %}
+                {% if image.category == "3d non glow signage" %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-3">
+                    <div class="card flex-fill h-100" style="width: 50%;">
+                        <img src="{{ image.photo.url }}" class="card-img-top img-fluid rounded hover-zoom"
+                            alt="{{ image.category }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ image.category }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
 
-        <!-- 2D SIGNAGE Grid -->
-        <div id="two-d-signage" class="content-grid row">
-            {% for image in images %}
-            {% if image.category == "2d signages" %}
-            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
-                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+        <!-- 2D Signages -->
+        <div class="tab-pane fade" id="two-d-signage" role="tabpanel" aria-labelledby="two-d-signage-tab">
+            <div class="row images">
+                {% for image in images %}
+                {% if image.category == "2d signages" %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-3">
+                    <div class="card flex-fill h-100" style="width: 50%;">
+                        <img src="{{ image.photo.url }}" class="card-img-top img-fluid rounded hover-zoom"
+                            alt="{{ image.category }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ image.category }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
 
-        <!-- ACP PANELLING Grid -->
-        <div id="acp-panelling" class="content-grid row">
-            {% for image in images %}
-            {% if image.category == "Acp panelling" %}
-            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
-                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+        <!-- ACP Panelling -->
+        <div class="tab-pane fade" id="acp-panelling" role="tabpanel" aria-labelledby="acp-panelling-tab">
+            <div class="row images">
+                {% for image in images %}
+                {% if image.category == "Acp panelling" %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-3">
+                    <div class="card flex-fill h-100" style="width: 50%;">
+                        <img src="{{ image.photo.url }}" class="card-img-top img-fluid rounded hover-zoom"
+                            alt="{{ image.category }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ image.category }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
 
-        <!-- ACRYLIC NAMEPLATES Grid -->
-        <div id="acrylic-nameplates" class="content-grid row">
-            {% for image in images %}
-            {% if image.category == "Acrylic nameplates" %}
-            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
-                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+        <!-- Acrylic Nameplates -->
+        <div class="tab-pane fade" id="acrylic-nameplates" role="tabpanel" aria-labelledby="acrylic-nameplates-tab">
+            <div class="row images">
+                {% for image in images %}
+                {% if image.category == "Acrylic nameplates" %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-3">
+                    <div class="card flex-fill h-100" style="width: 50%;">
+                        <img src="{{ image.photo.url }}" class="card-img-top img-fluid rounded hover-zoom"
+                            alt="{{ image.category }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ image.category }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
 
-        <!-- ACRYLIC PRODUCTS Grid -->
-        <div id="acrylic-products" class="content-grid row">
-            {% for image in images %}
-            {% if image.category == "Acrylic products" %}
-            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
-                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+        <!-- Acrylic Products -->
+        <div class="tab-pane fade" id="acrylic-products" role="tabpanel" aria-labelledby="acrylic-products-tab">
+            <div class="row images">
+                {% for image in images %}
+                {% if image.category == "Acrylic products" %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-3">
+                    <div class="card flex-fill h-100" style="width: 50%;">
+                        <img src="{{ image.photo.url }}" class="card-img-top img-fluid rounded hover-zoom"
+                            alt="{{ image.category }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ image.category }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
 
-        <!-- DIGITAL PRINTING Grid -->
-        <div id="digital-printing" class="content-grid row">
-            {% for image in images %}
-            {% if image.category == "Digital printing" %}
-            <div class="images col-12 col-sm-6 col-md-4 mb-4 fade-in-image">
-                <img src="{{ image.photo.url }}" class="img-fluid rounded hover-zoom" alt="{{ image.category }}">
+        <!-- Digital Printing -->
+        <div class="tab-pane fade" id="digital-printing" role="tabpanel" aria-labelledby="digital-printing-tab">
+            <div class="row images">
+                {% for image in images %}
+                {% if image.category == "Digital printing" %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-3">
+                    <div class="card flex-fill h-100" style="width: 50%;">
+                        <img src="{{ image.photo.url }}" class="card-img-top img-fluid rounded hover-zoom"
+                            alt="{{ image.category }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ image.category }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
     </div>
 </div>
 
 <!-- FAQ -->
- <div >
-<div class="container mt-5" style="height: 100vh;">
+<div>
+    <h1 class="mt-3 text-center" style="color: #000;" id="headingOne">Frequently Asked Questions</h2>
+        <div class="container mt-5" style="height: 100vh;">
 
-  <div class="row w-100">
-      <div class="col-lg-6" id="faq">
-          <div class="accordion" id="faqAccordion">
-              <div class="accordion-item" >
-                  <h2 class="accordion-header mt-3" id="headingOne" >
-                    Frequently Asked Questions
-                      <button class="accordion-button mt-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-controls="collapseOne">
-                          What is the life span of my signage?
-                      </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                      <div class="accordion-body">
-                          The lifespan of a sign is determined by a number of factors, these are the location, quality of the materials used and maintenance schedule for the sign after installation. Generally, you should expect a sign to last around 10 years with regular maintenance, however, many companies will replace their signage every five years to keep the image looking clean and up to date.
-                      </div>
-                  </div>
-              </div>
-              <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingTwo">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          How long will it take to manufacture my signage?
-                      </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                      <div class="accordion-body">
-                          Our manufacturing time, under normal circumstances, is 2-3 working days, however, during busy periods, this may extend to 7 – 8 working days. For particularly large projects or urgent projects, a mutually agreed time frame can be organized. All timeline estimations are from receipt of an agreed deposit or purchase order.
-                      </div>
-                  </div>
-              </div>
-              <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        What gaurantee does my signboard have?
-                       
-                      </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                      <div class="accordion-body">
-                        Our signages are completed to the highest possible standard and are currently supplied with a 1-year guarantee from the date of the completion of the installation as we suggest the specifications to reach the guarantee.
-                      </div>
-                  </div>
-              </div>
-              <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingFour">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        What materials can be used in construction of my signage board?
+            <div class="row">
+                <div class="col-lg-6" id="faq">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
 
-                      </button>
-                  </h2>
-                  <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                      <div class="accordion-body">
-                        We have the ability to use many different types of materials, from extruded plastics, cast acrylics, wood and composite materials. Materials are available in various different colors and finishes
-                      </div>
-                  </div>
-              </div>
-              <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingFive">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                        What kind of maintenance will my sign board require?
-                        
-                      </button>
-                  </h2>
-                  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
-                      <div class="accordion-body">
-                        Depending on the materials, signs may need to be cleaned over time, especially outdoor signage. Our consultants can make specific recommendations for maintenance based on your sign. It’s important to avoid damage from harsh cleaners. Use only a soap and water mixture and avoid any cleaning product that contains ammonia.
-                      </div>
-                  </div>
-              </div>
-              <!-- Add more accordion items as needed -->
-          </div>
-      </div>
-      <div class="col-lg-6 d-flex align-items-center justify-content-center faq-image-container">
-          <img src="https://www.avlasercrafts.com/assets/images/about.png" class="img-fluid rounded rounded faq-image" alt="FAQ Image">
-      </div>
-  </div>
-</div>
+                            <button class="accordion-button mt-5" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-controls="collapseOne">
+                                What is the life span of my signage?
+                            </button>
+
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    The lifespan of a sign is determined by a number of factors, these are the
+                                    location, quality of the materials used and maintenance schedule for the
+                                    sign after installation. Generally, you should expect a sign to last around
+                                    10 years with regular maintenance, however, many companies will replace
+                                    their signage every five years to keep the image looking clean and up to
+                                    date.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    How long will it take to manufacture my signage?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our manufacturing time, under normal circumstances, is 2-3 working days,
+                                    however, during busy periods, this may extend to 7 – 8 working days. For
+                                    particularly large projects or urgent projects, a mutually agreed time frame
+                                    can be organized. All timeline estimations are from receipt of an agreed
+                                    deposit or purchase order.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    What gaurantee does my signboard have?
+
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our signages are completed to the highest possible standard and are
+                                    currently supplied with a 1-year guarantee from the date of the completion
+                                    of the installation as we suggest the specifications to reach the guarantee.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    What materials can be used in construction of my signage board?
+
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We have the ability to use many different types of materials, from extruded
+                                    plastics, cast acrylics, wood and composite materials. Materials are
+                                    available in various different colors and finishes
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    What kind of maintenance will my sign board require?
+
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Depending on the materials, signs may need to be cleaned over time,
+                                    especially outdoor signage. Our consultants can make specific
+                                    recommendations for maintenance based on your sign. It’s important to avoid
+                                    damage from harsh cleaners. Use only a soap and water mixture and avoid any
+                                    cleaning product that contains ammonia.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more accordion items as needed -->
+                    </div>
+                </div>
+                <div class=" col-lg-6 d-flex align-items-center justify-content-center faq-image-container">
+                    <img src="https://www.avlasercrafts.com/assets/images/about.png"
+                        class="dsimg img-fluid rounded rounded faq-image" alt="FAQ Image">
+                </div>
+            </div>
+        </div>
 </div>
 
 <div class="contact-section container" id="contact">
     <h1 class="contact-title mt-5">Contact</h1>
-    <h4 class="contact-subtitle">Our Manufacturing plant Located in Ambernath West, Thane. Feel free to call us, or use the contact form below to reach out to us.</h4>
-    
+    <h4 class="contact-subtitle">Our Manufacturing plant Located in Ambernath West, Thane. Feel free to call
+        us, or use the contact form below to reach out to us.</h4>
+
     <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14344.174797028092!2d73.1878486!3d19.2146975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be793001d721757%3A0xc132e9267c8ed6b0!2sUltron%20Arts%20Sign%20Board%20And%20Graphics!5e1!3m2!1sen!2sin!4v1727429941447!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-<!--         
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14344.174797028092!2d73.1878486!3d19.2146975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be793001d721757%3A0xc132e9267c8ed6b0!2sUltron%20Arts%20Sign%20Board%20And%20Graphics!5e1!3m2!1sen!2sin!4v1727429941447!5m2!1sen!2sin"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!--
         <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d120656.87925798235!2d73.04024516931437!3d19.08450216482951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1savlasercrafts!5e0!3m2!1sen!2sin!4v1723135660457!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
     </div>
-    
+
     <div class="contact-info text-left">
         <strong>Head Office/ Manufacturing Unit</strong>
         Ultron Arts, Opp.Ambernath Police station, Fatima School Road, Kailash Nagar, Ambernath West<br>
@@ -1262,7 +1540,7 @@ hr.custom-hr {
                 <p class="title-mymessage">Leave A Message.</p>
                 <div class="row flex">
                     <div class="col-12 col-sm-6">
-                      
+
                     </div>
                 </div>
                 <label>
@@ -1274,10 +1552,10 @@ hr.custom-hr {
                     <span>Email</span>
                 </label>
                 <label>
-                    <textarea  required class="input" rows="4" name="message"></textarea>
+                    <textarea required class="input" rows="4" name="message"></textarea>
                     <span>Message</span>
                 </label>
-            
+
                 <button class="submit">Send a message</button>
             </form>
         </div>
@@ -1302,7 +1580,8 @@ hr.custom-hr {
             </div>
             <div class="col-lg-3 col-md-6 footer-contact">
                 <h5>Contact Us</h5>
-                <p>Ultron Arts, Opp.Ambernath Police station,Fatima School Road, Kailash Nagar, Ambernath West<br>
+                <p>Ultron Arts, Opp.Ambernath Police station,Fatima School Road, Kailash Nagar, Ambernath
+                    West<br>
 
 
                 <p>Email: <a href="mailto:ultronarts77@gmail.com">ultronarts77@gmail.com</a></p>
@@ -1310,9 +1589,11 @@ hr.custom-hr {
             </div>
             <div class="col-lg-3 col-md-6 social-icons text-center text-md-end">
                 <h5>Follow Us</h5>
-                <a href="https://www.facebook.com/profile.php?id=61563009328372" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61563009328372" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
                 <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
-                <a href="https://www.instagram.com/ultron_arts_?utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/ultron_arts_?utm_source=qr" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
                 <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
             </div>
         </div>
@@ -1322,7 +1603,8 @@ hr.custom-hr {
                     &copy; 2024 Ultron Arts. All Rights Reserved.
                 </div>
                 <div class="developer-info">
-                    Designed & Developed by <a href="https://www.starxinnovations.in/" target="_blank">STARX INNOVATIONS AND
+                    Designed & Developed by <a href="https://www.starxinnovations.in/" target="_blank">STARX
+                        INNOVATIONS AND
                         IT SOLUTIONS</a> | <a href="privacy-policy">Privacy Policy</a>
                 </div>
             </div>
@@ -1335,56 +1617,56 @@ hr.custom-hr {
 
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 <script>
-let nextDom = document.getElementById('next');
-let prevDom = document.getElementById('prev');
+    let nextDom = document.getElementById('next');
+    let prevDom = document.getElementById('prev');
 
-let carouselDom = document.querySelector('.carousel');
-let SliderDom = carouselDom.querySelector('.carousel .list');
-let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
-let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
-let timeDom = document.querySelector('.carousel .time');
+    let carouselDom = document.querySelector('.carousel');
+    let SliderDom = carouselDom.querySelector('.carousel .list');
+    let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
+    let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
+    let timeDom = document.querySelector('.carousel .time');
 
-thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-let timeRunning = 3000;
-let timeAutoNext = 7000;
+    thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+    let timeRunning = 3000;
+    let timeAutoNext = 7000;
 
-nextDom.onclick = function(){
-    showSlider('next');    
-}
-
-prevDom.onclick = function(){
-    showSlider('prev');    
-}
-let runTimeOut;
-let runNextAuto = setTimeout(() => {
-    next.click();
-}, timeAutoNext)
-function showSlider(type){
-    let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
-    let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
-    
-    if(type === 'next'){
-        SliderDom.appendChild(SliderItemsDom[0]);
-        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-        carouselDom.classList.add('next');
-    }else{
-        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
-        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
-        carouselDom.classList.add('prev');
+    nextDom.onclick = function () {
+        showSlider('next');
     }
-    clearTimeout(runTimeOut);
-    runTimeOut = setTimeout(() => {
-        carouselDom.classList.remove('next');
-        carouselDom.classList.remove('prev');
-    }, timeRunning);
 
-    clearTimeout(runNextAuto);
-    runNextAuto = setTimeout(() => {
+    prevDom.onclick = function () {
+        showSlider('prev');
+    }
+    let runTimeOut;
+    let runNextAuto = setTimeout(() => {
         next.click();
     }, timeAutoNext)
-}
+    function showSlider(type) {
+        let SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
+        let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
 
-document.addEventListener('DOMContentLoaded', function () {
+        if (type === 'next') {
+            SliderDom.appendChild(SliderItemsDom[0]);
+            thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+            carouselDom.classList.add('next');
+        } else {
+            SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+            thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+            carouselDom.classList.add('prev');
+        }
+        clearTimeout(runTimeOut);
+        runTimeOut = setTimeout(() => {
+            carouselDom.classList.remove('next');
+            carouselDom.classList.remove('prev');
+        }, timeRunning);
+
+        clearTimeout(runNextAuto);
+        runNextAuto = setTimeout(() => {
+            next.click();
+        }, timeAutoNext)
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
         const buttons = document.querySelectorAll('.list-group-item');
         const contents = document.querySelectorAll('.content-grid');
 
@@ -1408,13 +1690,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-        window.addEventListener('load', function () {
-      document.querySelector('.loader').style.display = 'none';
-     
-      
+    window.addEventListener('load', function () {
+        document.querySelector('.loader').style.display = 'none';
+
+
     });
 
 </script>
 
-  
+
 {% endblock body %}
