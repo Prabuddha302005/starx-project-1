@@ -5,9 +5,11 @@ urlpatterns = [
     path('privacy-policy', views.privacy),
     path('admin-login', views.adminLogin),
     path('adminpanel', views.adminPanel),
+    path('service-images', views.adminServiceImages),
     path('admin-messages', views.adminMessages),
     path('delete-message/<id>', views.deleteMessages),
     path('delete-image/<id>', views.deleteImage),
+    path('delete-service-image/<id>', views.deleteImageFromOurServices),
     path('logout', views.adminLogout),
 ] 
 

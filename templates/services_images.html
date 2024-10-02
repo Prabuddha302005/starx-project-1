@@ -21,7 +21,7 @@
             <div class="container mt-4" id="manage-images">
                 <h1>Manage Images</h1>
                 <div class="alert alert-info w-50" role="alert">
-                 Note: The images for featured works will be updated from this section
+                 Note: The images for Our Services will be updated from this section
                   </div>
                 <hr>
                 <!-- Form to Upload Image -->
@@ -31,20 +31,15 @@
                         <label for="imageUpload" class="form-label">Upload Image</label>
                         <input type="file" class="form-control w-50" id="imageUpload" name="image">
                     </div>
-
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Image Title</label>
+                        <input type="name" class="form-control w-50" id="name" placeholder="Image name" name="name">
+                      </div>
                     <!-- Select Category -->
                     <div class="mb-3">
-                        <label for="category" class="form-label w-50">Select Category</label>
-                        <select class="form-select w-50" id="category" name="category">
-                            <option value="3d Glow Signage">3D GLOW SIGNAGE</option>
-                            <option value="3d Non Glow Signage">3D NON-GLOW SIGNAGE</option>
-                            <option value="2d Signages">2D SIGNAGES</option>
-                            <option value="Acp Panelling">ACP PANELLING</option>
-                            <option value="Acrylic Nameplates">ACRYLIC NAMEPLATES</option>
-                            <option value="Acrylic Products">ACRYLIC PRODUCTS</option>
-                            <option value="Digital Printing">DIGITAL PRINTING</option>
-                        </select>
-                    </div>
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea class="form-control w-50" id="exampleFormControlTextarea1" name="description" rows="3"></textarea>
+                      </div>
 
                     <button type="submit" class="btn btn-success">Upload Image</button>
                 </form>
@@ -68,9 +63,9 @@
                             <td>
                                 <img src="{{ photo.photo.url }}" alt="Sample Image" class="img-thumbnail image-hover">
                             </td>
-                            <td>{{photo.category}}</td>
+                            <td>{{photo.description}}</td>
                             <td>
-                                <a href='delete-image/{{photo.id}}' class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i> Delete</a>
+                                <a href='delete-service-image/{{photo.id}}' class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i> Delete</a>
                             </td>
                         </tr>
                         {% endfor %}

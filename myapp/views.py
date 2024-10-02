@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from myapp.models import Message, ServicePhotos
+from myapp.models import Message, ServicePhotos, OurServicesPhotos
 from django.contrib.auth import login, authenticate, logout
 from django.db.models import Q
 from django.contrib import messages
@@ -31,6 +31,9 @@ def home(request):
     data={}
     get_images = ServicePhotos.objects.all()
     data['images'] = get_images
+
+    get_ourServicesImages = OurServicesPhotos.objects.all()
+    data['services_photos'] = get_ourServicesImages
 
     return render(request, "home.html", context=data)
 
@@ -70,18 +73,49 @@ def adminPanel(request):
         return redirect("/admin-login")
     return render(request, "adminpanel.html", context=data)
 
+def adminServiceImages(request):
+    if(request.user.is_authenticated):
+        data={}
+        if(request.method == "POST"):
+            image = request.FILES.get('image')
+            name = request.POST.get('name')
+            description = request.POST.get('description')
+            if(image == None):
+                messages.error(request, "Please enter the Image")
+            else:
+                save_images = OurServicesPhotos.objects.create(photo=image, name=name, description=description)
+                messages.success(request, "Image Uploaded")
+        get_images = OurServicesPhotos.objects.all()
+        data['images'] = get_images
+        print(request.user)
+
+    return render(request, "services_images.html", context=data)
+
 
 def deleteImage(request, id):
+    
     image_delete = ServicePhotos.objects.get(id=id)
     image_delete.delete()
     messages.error(request, "Image deleted from your website")
     return redirect('/adminpanel')
 
+def deleteImageFromOurServices(request, id):
+    
+    image_delete = OurServicesPhotos.objects.get(id=id)
+    image_delete.delete()
+    messages.error(request, "Image deleted from your website")
+    return redirect('/service-images')
+
 def adminMessages(request):
-    data={}
-    get_message = Message.objects.all()
-    data['customerMessages'] = get_message
+    if(request.user.is_authenticated):
+
+        data={}
+        get_message = Message.objects.all()
+        data['customerMessages'] = get_message
+    else:
+        return redirect('/')
     return render(request, "messages.html", context=data)
+
 
 def deleteMessages(request, id):
     mess_delete = Message.objects.get(id=id)
