@@ -3,14 +3,14 @@ from myapp import views
 urlpatterns = [
     path('', views.home),
     path('privacy-policy', views.privacy),
-    path('admin-login', views.adminLogin),
-    path('adminpanel', views.adminPanel),
+    path('admin-rupali-login', views.adminLogin),
+    path('site-admin-rupali', views.adminPanel),
     path('service-images', views.adminServiceImages),
     path('admin-messages', views.adminMessages),
     path('delete-message/<id>', views.deleteMessages),
     path('delete-image/<id>', views.deleteImage),
     path('delete-service-image/<id>', views.deleteImageFromOurServices),
-    path('logout', views.adminLogout),
+    path('logout-admin/', views.adminLogout),
 ] 
 
 from django.conf.urls.static import static

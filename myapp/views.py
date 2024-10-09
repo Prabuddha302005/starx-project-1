@@ -24,7 +24,7 @@ def home(request):
             subject=f'New Message from {name}',
             message=f'Subject: {subject}\n\nMessage:\n{message}\n\nFrom: {name}, Email: {email}',
             from_email='noreply@yourdomain.com',
-            recipient_list=['prabuddhachunchekar@gmail.com'],  # Client's email
+            recipient_list=['ultronarts77@gmail.com'], 
             fail_silently=False,
         )
    
@@ -52,7 +52,7 @@ def adminLogin(request):
         else:
             login(request, user)
             messages.success(request, "Logged in")
-            return redirect("/adminpanel")
+            return redirect("/site-admin-rupali")
     return render(request, "login.html")
 
 
@@ -60,17 +60,20 @@ def adminPanel(request):
     data = {}
     if(request.user.is_authenticated):
         if request.method == "POST":
-            image = request.FILES.get('image')  # Safely get the image from the request
-            category = request.POST.get('category')  # Safely get the category
-            print(f"The image name is = {image} The Category name is = {category}")
-            images_upload = ServicePhotos.objects.create(photo=image, category=category)
-            messages.success(request, "Image added to your website")
+            image = request.FILES.get('image')
+            category = request.POST.get('category')
+            if(image == None):
+                messages.error(request, "Please enter the Image")
+            else:
+                print(f"The image name is = {image} The Category name is = {category}")
+                images_upload = ServicePhotos.objects.create(photo=image, category=category)
+                messages.success(request, "Image added to your website")
         get_images = ServicePhotos.objects.all()
         data['images'] = get_images
         print(request.user)
 
     else:
-        return redirect("/admin-login")
+        return redirect("/admin-rupali-login")
     return render(request, "adminpanel.html", context=data)
 
 def adminServiceImages(request):
@@ -97,7 +100,7 @@ def deleteImage(request, id):
     image_delete = ServicePhotos.objects.get(id=id)
     image_delete.delete()
     messages.error(request, "Image deleted from your website")
-    return redirect('/adminpanel')
+    return redirect('/site-admin-rupali')
 
 def deleteImageFromOurServices(request, id):
     
@@ -125,5 +128,5 @@ def deleteMessages(request, id):
 def adminLogout(request):
     logout(request)
     messages.error(request, "Logged out")
-    return redirect("/admin-login")
+    return redirect("/admin-rupali-login")
 
